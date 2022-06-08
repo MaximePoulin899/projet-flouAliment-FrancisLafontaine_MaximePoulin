@@ -4,6 +4,9 @@ public class Employe {
     private String nom;
     private String prenom;
     private String type;
+    private double montantUtiliserTranportJour;
+    private double montantUtiliserHebergementMois;
+    private double montantUtiliserRestaurationJour;
 
     public Employe() {
     }
