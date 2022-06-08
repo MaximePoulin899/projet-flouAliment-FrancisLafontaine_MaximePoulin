@@ -99,9 +99,8 @@ public class FenMenu extends javax.swing.JFrame {
                 .addContainerGap(256, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnEntrerFacture, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnAfficherListFrais, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-                        .addComponent(btnAfficherListCommerc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnAfficherListFrais, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                    .addComponent(btnAfficherListCommerc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(223, 223, 223))
         );
         jPanel2Layout.setVerticalGroup(
@@ -154,6 +153,9 @@ public class FenMenu extends javax.swing.JFrame {
 
     private void btnAfficherListCommercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfficherListCommercActionPerformed
         // TODO add your handling code here:-------------------------------------------------bouton afficher list de commerciaux
+        FenEmployes fenEmployes = new FenEmployes();
+        fenEmployes.setVisible(true);
+        
     }//GEN-LAST:event_btnAfficherListCommercActionPerformed
 
     private void btnQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitterActionPerformed
@@ -163,10 +165,17 @@ public class FenMenu extends javax.swing.JFrame {
 
     private void btnEntrerFactureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrerFactureActionPerformed
         // TODO add your handling code here:--------------------------------------------------bouton entrer nouvelle Facture
+        
+        FenEntrerFacture fenEntrerFacture = new FenEntrerFacture();
+        fenEntrerFacture.setVisible(true);
+        
     }//GEN-LAST:event_btnEntrerFactureActionPerformed
 
     private void btnAfficherListFraisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfficherListFraisActionPerformed
         // TODO add your handling code here:--------------------------------------------------bouton afficher Liste de frais 
+        
+        FenListingFacture fenListingFacture = new FenListingFacture();
+        fenListingFacture.setVisible(true);        
     }//GEN-LAST:event_btnAfficherListFraisActionPerformed
 
 
