@@ -1,5 +1,7 @@
 package modele;
 
+import java.util.Date;
+
 public class Hebergement extends Frais{
 
 
@@ -7,6 +9,29 @@ public class Hebergement extends Frais{
     }
 
 
+    public Hebergement(Employe employe, String typeFrais, double prixFacture, double remboDispo, Date date) {
+        super(employe, typeFrais, prixFacture, remboDispo, date);
+    }
+
+    @Override
+    public Employe getEmploye() {
+        return super.getEmploye();
+    }
+
+    @Override
+    public void setEmploye(Employe employe) {
+        super.setEmploye(employe);
+    }
+
+    @Override
+    public String getTypeFrais() {
+        return super.getTypeFrais();
+    }
+
+    @Override
+    public void setTypeFrais(String typeFrais) {
+        super.setTypeFrais(typeFrais);
+    }
 
     @Override
     public double getPrixFacture() {
@@ -29,36 +54,16 @@ public class Hebergement extends Frais{
     }
 
     @Override
-    public Commerciaux getTypeCommerciaux() {
-        return super.getTypeCommerciaux();
-    }
-
-    @Override
-    public void setTypeCommerciaux(Commerciaux typeCommerciaux) {
-        super.setTypeCommerciaux(typeCommerciaux);
-    }
-
-    @Override
-    public String getDate() {
+    public Date getDate() {
         return super.getDate();
     }
 
     @Override
-    public void setDate(String date) {
+    public void setDate(Date date) {
         super.setDate(date);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-//    À voir si on a besoin de overide la méthode to String ---> C'EST UN TEST IÇI À VÉRIFIER ET NON FAIT DANS LES AUTRES CLASSES
+    //    À voir si on a besoin de overide la méthode to String ---> C'EST UN TEST IÇI À VÉRIFIER ET NON FAIT DANS LES AUTRES CLASSES
     @Override
     public String toString() {
         return "Hebergement{" +super.toString();
