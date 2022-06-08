@@ -1,14 +1,14 @@
 package modele;
 
-public class Commerciaux {
+public class Employe {
     private String nom;
     private String prenom;
     private String type;
 
-    public Commerciaux() {
+    public Employe() {
     }
 
-    public Commerciaux(String nom, String prenom, String type) {
+    public Employe(String nom, String prenom, String type) {
         this.nom = nom;
         this.prenom = prenom;
         this.type = type;
