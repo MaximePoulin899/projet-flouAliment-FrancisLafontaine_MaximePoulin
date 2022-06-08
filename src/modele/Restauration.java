@@ -7,8 +7,8 @@ public class Restauration extends Frais{
     public Restauration() {
     }
 
-    public Restauration(Employe employe, String typeFrais, double prixFacture, double remboDispo, Date date) {
-        super(employe, typeFrais, prixFacture, remboDispo, date);
+    public Restauration(Employe employe, String typeFrais, double prixFacture, Date date) {
+        super(employe, typeFrais, prixFacture, date);
     }
 
     @Override

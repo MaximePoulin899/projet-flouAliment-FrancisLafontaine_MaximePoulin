@@ -2,15 +2,14 @@ package modele;
 
 import java.util.Date;
 
-public class Hebergement extends Frais{
+public class Hebergement extends Frais {
 
 
     public Hebergement() {
     }
 
-
-    public Hebergement(Employe employe, String typeFrais, double prixFacture, double remboDispo, Date date) {
-        super(employe, typeFrais, prixFacture, remboDispo, date);
+    public Hebergement(Employe employe, String typeFrais, double prixFacture, Date date) {
+        super(employe, typeFrais, prixFacture, date);
     }
 
     @Override
@@ -50,6 +49,7 @@ public class Hebergement extends Frais{
 
     @Override
     public void setRemboDispo(double remboDispo) {
+
         super.setRemboDispo(remboDispo);
     }
 
@@ -66,7 +66,7 @@ public class Hebergement extends Frais{
     //    À voir si on a besoin de overide la méthode to String ---> C'EST UN TEST IÇI À VÉRIFIER ET NON FAIT DANS LES AUTRES CLASSES
     @Override
     public String toString() {
-        return "Hebergement{" +super.toString();
+        return "Hebergement{" + super.toString();
     }
 
     @Override

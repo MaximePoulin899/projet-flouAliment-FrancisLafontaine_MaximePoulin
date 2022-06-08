@@ -7,8 +7,8 @@ public class Transport extends Frais{
     public Transport() {
     }
 
-    public Transport(Employe employe, String typeFrais, double prixFacture, double remboDispo, Date date) {
-        super(employe, typeFrais, prixFacture, remboDispo, date);
+    public Transport(Employe employe, String typeFrais, double prixFacture, Date date) {
+        super(employe, typeFrais, prixFacture, date);
     }
 
     @Override

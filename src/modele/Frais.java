@@ -12,11 +12,10 @@ public abstract class Frais {
     public Frais() {
     }
 
-    public Frais(Employe employe, String typeFrais, double prixFacture, double remboDispo, Date date) {
+    public Frais(Employe employe, String typeFrais, double prixFacture, Date date) {
         this.employe = employe;
         this.typeFrais = typeFrais;
         this.prixFacture = prixFacture;
-        this.remboDispo = remboDispo;
         this.date = date;
     }
 
@@ -60,7 +59,18 @@ public abstract class Frais {
         this.date = date;
     }
 
-        public abstract void calculerLimiteMensuel();
+    @Override
+    public String toString() {
+        return "{" +
+                "employe=" + employe +
+                ", typeFrais='" + typeFrais + '\'' +
+                ", prixFacture=" + prixFacture +
+                ", remboDispo=" + remboDispo +
+                ", date=" + date +
+                '}';
+    }
+
+    public abstract void calculerLimiteMensuel();
 
     public abstract void validerMontant();
 
