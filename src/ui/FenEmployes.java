@@ -4,17 +4,38 @@
  */
 package ui;
 
+import javax.swing.table.DefaultTableModel;
+
+import modele.Employe;
+import modele.RegistreEmploye;
+
 /**
  *
  * @author Maxime
  */
 public class FenEmployes extends javax.swing.JFrame {
-
+RegistreEmploye listing;
     /**
      * Creates new form FenEmployes
      */
     public FenEmployes() {
         initComponents();
+    }
+
+    public FenEmployes(RegistreEmploye listing) {
+        this();
+        this.listing = listing;
+     String resultat = listing.afficherEmploye();
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        for (Employe employe : listing.getRegistre()
+             ) {
+            model.addRow(new Object[]{employe.getNom(), employe.getPrenom(), employe.getType()});
+        }
+
+
+
     }
 
     /**
@@ -43,10 +64,7 @@ public class FenEmployes extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Nom", "Prenom", "Type D'employé"
@@ -82,11 +100,8 @@ public class FenEmployes extends javax.swing.JFrame {
                         .addComponent(lblTitre))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(388, 388, 388)
-                        .addComponent(btnRetour))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(237, 237, 237)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(248, Short.MAX_VALUE))
+                        .addComponent(btnRetour)))
+                .addContainerGap(320, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,6 +111,10 @@ public class FenEmployes extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(371, 371, 371))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(237, 237, 237)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,8 +126,8 @@ public class FenEmployes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79)
                 .addComponent(btnRetour)
                 .addGap(60, 60, 60))
         );

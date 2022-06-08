@@ -4,11 +4,14 @@
  */
 package ui;
 
+import modele.RegistreEmploye;
+
 /**
  *
  * @author lafon
  */
 public class FenMenu extends javax.swing.JFrame {
+    RegistreEmploye listing;
 
     /**
      * Creates new form FenMenu
@@ -16,6 +19,11 @@ public class FenMenu extends javax.swing.JFrame {
     public FenMenu() {
         initComponents();
     }
+    public FenMenu(RegistreEmploye listing) {
+        this();
+        this.listing = listing;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -153,8 +161,11 @@ public class FenMenu extends javax.swing.JFrame {
 
     private void btnAfficherListCommercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfficherListCommercActionPerformed
         // TODO add your handling code here:-------------------------------------------------bouton afficher list de commerciaux
-        FenEmployes fenEmployes = new FenEmployes();
+        
+        FenEmployes fenEmployes = new FenEmployes(listing);
         fenEmployes.setVisible(true);
+        
+        
         
     }//GEN-LAST:event_btnAfficherListCommercActionPerformed
 
