@@ -1,6 +1,6 @@
 package modele;
 
-public class RegistreCommerciaux {
+public class RegistreEmploye {
 
 
 

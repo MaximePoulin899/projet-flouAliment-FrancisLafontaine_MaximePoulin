@@ -1,11 +1,13 @@
 package modele;
 
+import java.util.Date;
+
 public class Frais {
+    private Employe employe;
+    private String typeFrais;
     private double prixFacture;
     private double remboDispo;
-    private Commerciaux typeCommerciaux;
-    private String date;
-
+    private Date date;
 
 
 
