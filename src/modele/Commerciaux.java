@@ -40,7 +40,7 @@ public class Commerciaux {
 
     @Override
     public String toString() {
-        return "Commerciaux{" +
+        return "{" +
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", type='" + type + '\'' +
