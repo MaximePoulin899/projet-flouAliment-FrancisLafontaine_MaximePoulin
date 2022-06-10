@@ -127,8 +127,22 @@ public class Main {
             JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
         }
 
+        try {
+            listingFrais.ajouterFrais(hebergement1);
+        } catch (ExceptionFraisExisteDeja e) {
+            JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
+        }
 
-       //Afficher Frais
+        try {
+            listingFrais.ajouterFrais(hebergement3);
+        } catch (ExceptionFraisExisteDeja e) {
+            JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
+        }
+
+
+
+
+        //Afficher Frais
         System.out.println("\n--------------Afficher Frais-------------------\n");
         listingFrais.listerFrais();
 
