@@ -1,5 +1,8 @@
 package modele;
 
+import javax.swing.*;
+import java.util.Objects;
+
 public class Employe {
     private String nom;
     private String prenom;
@@ -11,10 +14,13 @@ public class Employe {
     public Employe() {
     }
 
-    public Employe(String nom, String prenom, String type) {
+    public Employe(String nom, String prenom, String type, double montantUtiliserTranportJour, double montantUtiliserHebergementMois, double montantUtiliserRestaurationJour) {
         this.nom = nom;
         this.prenom = prenom;
         this.type = type;
+        this.montantUtiliserTranportJour = montantUtiliserTranportJour;
+        this.montantUtiliserHebergementMois = montantUtiliserHebergementMois;
+        this.montantUtiliserRestaurationJour = montantUtiliserRestaurationJour;
     }
 
     public String getNom() {
@@ -41,12 +47,40 @@ public class Employe {
         this.type = type;
     }
 
+    public double getMontantUtiliserTranportJour() {
+        return montantUtiliserTranportJour;
+    }
+
+    public void setMontantUtiliserTranportJour(double montantUtiliserTranportJour) {
+        this.montantUtiliserTranportJour = montantUtiliserTranportJour;
+    }
+
+    public double getMontantUtiliserHebergementMois() {
+        return montantUtiliserHebergementMois;
+    }
+
+    public void setMontantUtiliserHebergementMois(double montantUtiliserHebergementMois) {
+        this.montantUtiliserHebergementMois = montantUtiliserHebergementMois;
+    }
+
+    public double getMontantUtiliserRestaurationJour() {
+        return montantUtiliserRestaurationJour;
+    }
+
+    public void setMontantUtiliserRestaurationJour(double montantUtiliserRestaurationJour) {
+        this.montantUtiliserRestaurationJour = montantUtiliserRestaurationJour;
+    }
+
     @Override
-    public String toString() {
-        return "{" +
-                "nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", type='" + type + '\'' +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employe)) return false;
+        Employe employe = (Employe) o;
+        return Objects.equals(getNom(), employe.getNom()) && Objects.equals(getPrenom(), employe.getPrenom()) && Objects.equals(getType(), employe.getType());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNom(), getPrenom(), getType());
     }
 }

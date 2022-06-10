@@ -2,8 +2,10 @@ package main;
 
 import modele.*;
 import ui.FenMenu;
+import utils.ExceptionEmployeDejaEmploye;
 import utils.Utilitaire;
 
+import javax.swing.*;
 import java.util.Date;
 
 public class Main {
@@ -15,6 +17,56 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        RegistreEmploye listing = new RegistreEmploye();
+
+        Employe employ1 = new Employe("Flouflou", "Alain", "junior",0.0,0.0,0.0);
+        Employe employ5 = new Employe("Flouflou", "Alain", "junior",0.0,0.0,0.0);
+        Employe employ2 = new Employe("Lafleur", "Ti-Guy", "senior",0.0,0.0,0.0);
+        Employe employ3 = new Employe("Dicoco", "Sergio", "super",0.0,0.0,0.0);
+        Employe employ4 = new Employe("Barrest", "Manon", "junior",0.0,0.0,0.0);
+
+
+
+        try {
+            listing.ajouterEmploye(employ1);
+        } catch (ExceptionEmployeDejaEmploye e) {
+            JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
+        }
+
+
+        try {
+            listing.ajouterEmploye(employ5);//-------------------------on essaie d'ajout un doublon
+        } catch (ExceptionEmployeDejaEmploye e) {
+            System.out.println(e.getEmploye().toString());
+            JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
+        }
+
+
+        try {
+            listing.ajouterEmploye(employ2);
+        } catch (ExceptionEmployeDejaEmploye e) {
+            JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
+        }
+
+
+        try {
+            listing.ajouterEmploye(employ3);
+        } catch (ExceptionEmployeDejaEmploye e) {
+            JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
+        }
+
+
+        try {
+            listing.ajouterEmploye(employ4);
+        } catch (ExceptionEmployeDejaEmploye e) {
+            JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
+        }
+
+
+
+
+        listing.listerEmployes();
+
 
         //----------------Test des RemboDispo Hebergement/Restaurant/Transport-------------------
 //        Date date = new Date();
@@ -73,18 +125,6 @@ public class Main {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                RegistreEmploye listing = new RegistreEmploye();
-
-                listing.ajouterEmploye(new Employe("Flouflou", "Alain", "Junior"));
-                listing.ajouterEmploye(new Employe("Lafleur", "Guy", "Senior"));
-                listing.ajouterEmploye(new Employe("Houde", "Paul", "Junior"));
-                listing.ajouterEmploye(new Employe("Pingouin", "Alain", "Super"));
-
-
-                for (Employe tmp : listing.getRegistre()
-                ) {
-                    System.out.println(tmp);
-                }
                 new FenMenu(listing).setVisible(true);
             }
         });
