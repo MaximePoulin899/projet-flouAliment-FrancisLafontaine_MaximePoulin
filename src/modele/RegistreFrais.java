@@ -23,9 +23,11 @@ public class RegistreFrais {
         this.registreFrais.add(frais);
     }
 
-    public void listerFrais() {
-
-    }
+//    public void listerFrais() {
+//        for (Frais tmp: registreFrais) {
+//
+//        }
+//    }
 
 
 //
