@@ -76,7 +76,7 @@ public class Employe {
         if (this == o) return true;
         if (!(o instanceof Employe)) return false;
         Employe employe = (Employe) o;
-        return Objects.equals(getNom(), employe.getNom()) && Objects.equals(getPrenom(), employe.getPrenom()) && Objects.equals(getType(), employe.getType());
+        return Objects.equals(getNom().toUpperCase(), employe.getNom().toUpperCase()) && Objects.equals(getPrenom().toUpperCase(), employe.getPrenom().toUpperCase()) && Objects.equals(getType().toUpperCase(), employe.getType().toUpperCase());
     }
 
     @Override
