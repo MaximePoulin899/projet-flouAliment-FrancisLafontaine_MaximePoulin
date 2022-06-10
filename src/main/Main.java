@@ -1,6 +1,7 @@
 package main;
 
 import modele.*;
+import oi.ManipFichier;
 import ui.FenMenu;
 import utils.ExceptionEmployeDejaEmploye;
 import utils.Utilitaire;
@@ -17,6 +18,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
+
         RegistreEmploye listing = new RegistreEmploye();
 
         Employe employ1 = new Employe("Flouflou", "Alain", "junior",0.0,0.0,0.0);
@@ -62,7 +65,7 @@ public class Main {
             JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
         }
 
-
+        ManipFichier.lecture("c:\\temporaire\\dataIn.txt", listing);
 
 
         listing.listerEmployes();

@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 
 import modele.Employe;
 import modele.RegistreEmploye;
+import oi.ManipFichier;
 
 /**
  *
@@ -55,6 +56,7 @@ private RegistreEmploye listing;
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,6 +121,13 @@ private RegistreEmploye listing;
                 .addGap(26, 26, 26))
         );
 
+        btnSave.setText("Sauvegarder");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,8 +148,10 @@ private RegistreEmploye listing;
                         .addGap(307, 307, 307)
                         .addComponent(lblTitre))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(395, 395, 395)
-                        .addComponent(btnRetour))
+                        .addGap(320, 320, 320)
+                        .addComponent(btnRetour)
+                        .addGap(67, 67, 67)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -164,7 +175,9 @@ private RegistreEmploye listing;
                 .addGap(11, 11, 11)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(btnRetour)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRetour)
+                    .addComponent(btnSave))
                 .addGap(62, 62, 62))
         );
 
@@ -176,6 +189,10 @@ private RegistreEmploye listing;
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnRetourActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        ManipFichier.ecriture("c:\\temporaire\\dataout.txt", listing);
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,6 +231,7 @@ private RegistreEmploye listing;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRetour;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
