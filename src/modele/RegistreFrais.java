@@ -2,13 +2,14 @@ package modele;
 
 
 import java.time.chrono.HijrahEra;
+import java.util.Iterator;
 import java.util.TreeSet;
 
 public class RegistreFrais {
     public TreeSet registreFrais;
 
     public RegistreFrais() {
-        this.registreFrais = new TreeSet<>();
+        this.registreFrais = new TreeSet<>(new FraisComparator());
     }
 
     public TreeSet getRegistreFrais() {
@@ -23,16 +24,16 @@ public class RegistreFrais {
         this.registreFrais.add(frais);
     }
 
-//    public void listerFrais() {
-//        for (Frais tmp: registreFrais) {
-//
-//        }
-//    }
+    public void listerFrais() {
+        Iterator iterateur = registreFrais.iterator();
+        while (iterateur.hasNext()){
+            System.out.println(iterateur.next());
+        }
+    }
 
-
-//
-//    public void supprimerFrais() {
-//    }
+    public void supprimerFrais(Frais frais) {
+        this.registreFrais.remove(frais);
+    }
 
 
 //

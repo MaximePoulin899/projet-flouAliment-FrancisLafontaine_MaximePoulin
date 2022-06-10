@@ -108,6 +108,7 @@ public class Main {
 
 
        //Afficher Frais
+        System.out.println("_-------------------------------------\n");
         listingFrais.listerFrais();
 
 
