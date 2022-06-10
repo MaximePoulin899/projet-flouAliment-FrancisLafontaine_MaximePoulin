@@ -66,7 +66,7 @@ public class Hebergement extends Frais {
     //    À voir si on a besoin de overide la méthode to String ---> C'EST UN TEST IÇI À VÉRIFIER ET NON FAIT DANS LES AUTRES CLASSES
     @Override
     public String toString() {
-        return "Hebergement{" + super.toString();
+        return "Hebergement" + super.toString();
     }
 
     @Override

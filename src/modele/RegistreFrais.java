@@ -1,6 +1,9 @@
 package modele;
 
 
+import utils.ExceptionFraisExisteDeja;
+
+import javax.swing.*;
 import java.time.chrono.HijrahEra;
 import java.util.Iterator;
 import java.util.TreeSet;
@@ -20,8 +23,23 @@ public class RegistreFrais {
         this.registreFrais = registreFrais;
     }
 
-    public void ajouterFrais(Frais frais) {
+//    public void ajouterFrais(Frais frais) throws ExceptionFraisExisteDeja {
+//        if (validerDoublonFrais(frais)){
+//            System.out.println("Erreur");
+//            throw new ExceptionFraisExisteDeja("Un frais doublon trouvé", frais);
+//        }else {
+//            JOptionPane.showMessageDialog(null,"Ajout du frais de votre employé avec succès ","Edition", JOptionPane.INFORMATION_MESSAGE);
+//            System.out.println("good Frais");
+//            this.registreFrais.add(frais);
+//        }
+//    }
+
+    public void ajouterFrais2(Frais frais){
         this.registreFrais.add(frais);
+    }
+
+    public void supprimerFrais(Frais frais) {
+        this.registreFrais.remove(frais);
     }
 
     public void listerFrais() {
@@ -31,10 +49,6 @@ public class RegistreFrais {
         }
     }
 
-    public void supprimerFrais(Frais frais) {
-        this.registreFrais.remove(frais);
-    }
-
 
 //
 //    public String afficherFrais() {
@@ -42,10 +56,15 @@ public class RegistreFrais {
 //        for (Frais tmp : registreFrais  ) {
 //
 //        }
-//
 //    }
 //
-//    public void validerDoublonFrais() {
-//    }
-
+    public boolean validerDoublonFrais(Frais frais) {
+        Iterator iterateur = registreFrais.iterator();
+        while (iterateur.hasNext()){
+            if(iterateur.equals(frais)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

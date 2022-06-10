@@ -62,6 +62,11 @@ public class Transport extends Frais{
     }
 
     @Override
+    public String toString() {
+        return "Transport" + super.toString();
+    }
+
+    @Override
     public void calculerLimiteMensuel() {
 
     }

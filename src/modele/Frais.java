@@ -1,6 +1,7 @@
 package modele;
 
 import java.util.Date;
+import java.util.Objects;
 
 public abstract class Frais {
     private Employe employe;
@@ -57,6 +58,19 @@ public abstract class Frais {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Frais)) return false;
+        Frais frais = (Frais) o;
+        return Double.compare(frais.getPrixFacture(), getPrixFacture()) == 0 && Double.compare(frais.getRemboDispo(), getRemboDispo()) == 0 && Objects.equals(getEmploye(), frais.getEmploye()) && Objects.equals(getTypeFrais(), frais.getTypeFrais()) && Objects.equals(getDate(), frais.getDate());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getEmploye(), getTypeFrais(), getPrixFacture(), getRemboDispo(), getDate());
     }
 
     @Override

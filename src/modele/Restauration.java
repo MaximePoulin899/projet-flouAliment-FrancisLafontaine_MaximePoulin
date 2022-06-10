@@ -62,6 +62,11 @@ public class Restauration extends Frais{
     }
 
     @Override
+    public String toString() {
+        return "Restauration" + super.toString();
+    }
+
+    @Override
     public void calculerLimiteMensuel() {
 
     }
