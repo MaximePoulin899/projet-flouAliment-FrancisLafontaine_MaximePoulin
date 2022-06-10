@@ -65,36 +65,51 @@ public class Main {
             JOptionPane.showMessageDialog(null,"Erreur sur employé, en double ! \n" + e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
         }
 
-        ManipFichier.lecture("c:\\temporaire\\dataIn.txt", listing);//----------------------cela fonctionne a date si tu as le fichier dans ton ordinateur
+        ManipFichier.lecture("src/data/dataIn.txt", listing);//----------------------cela fonctionne a date si tu as le fichier dans ton ordinateur
         //-----------------------------------------------------------------------------il va falloir que je cherche pour faire passe un chemin relatif
-
 
         listing.listerEmployes();
 
 
         //----------------Test des RemboDispo Hebergement/Restaurant/Transport-------------------
-//        Date date = new Date();
-//        Employe empJunior = new Employe("Frank", "Boy", "junior");
-//        Employe empSenior = new Employe("Max", "Boy", "senior");
-//        Employe empSuper= new Employe("King", "Pin", "super");
-//        Hebergement hebergement1 = new Hebergement(empJunior,"Hebergement",100,date);
-//        Hebergement hebergement2 = new Hebergement(empSenior,"Hebergement",100,date);
-//        Hebergement hebergement3 = new Hebergement(empSuper,"Hebergement",100,date);
-//        hebergement1.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empJunior));
-//        hebergement2.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSenior));
-//        hebergement3.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSuper));
-//
-//        Transport transport = new Transport(empJunior,"Transport",100,date);
-//        transport.setRemboDispo(Utilitaire.calculRemboursementMaxTransport(empJunior));
-//
-//        Restauration restauration = new Restauration(empSenior,"Restauration",100,date);
-//        restauration.setRemboDispo(Utilitaire.calculRemboursementMaxRestaurant(empSenior));
+        Date date = new Date();
+        Employe empJunior = new Employe("Frank", "Boy", "junior",0,0,0);
+        Employe empSenior = new Employe("Max", "Boy", "senior",0,0,0);
+        Employe empSuper= new Employe("King", "Pin", "super",0,0,0);
+        Hebergement hebergement1 = new Hebergement(empJunior,"Hebergement",100,date);
+        Hebergement hebergement2 = new Hebergement(empSenior,"Hebergement",100,date);
+        Hebergement hebergement3 = new Hebergement(empSuper,"Hebergement",100,date);
+
+        // Creation de frais et test de rembo dispo
+        hebergement1.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empJunior));
+        hebergement2.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSenior));
+        hebergement3.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSuper));
+        Transport transport = new Transport(empJunior,"Transport",100,date);
+        transport.setRemboDispo(Utilitaire.calculRemboursementMaxTransport(empJunior));
+        Restauration restauration = new Restauration(empSenior,"Restauration",100,date);
+        restauration.setRemboDispo(Utilitaire.calculRemboursementMaxRestaurant(empSenior));
+
 //
 //        System.out.println(hebergement1);
 //        System.out.println(hebergement2);
 //        System.out.println(hebergement3);
 //        System.out.println(transport);
 //        System.out.println(restauration);
+
+
+        //Creer listing Frais
+        RegistreFrais listingFrais = new RegistreFrais();
+
+        // ajouter facture
+       listingFrais.ajouterFrais(hebergement1);
+       listingFrais.ajouterFrais(hebergement2);
+       listingFrais.ajouterFrais(transport);
+       listingFrais.ajouterFrais(restauration);
+
+
+       //Afficher Frais
+        listingFrais.listerFrais();
+
 
 
         //----------------Test des RemboDispo Hebergement/Restaurant/Transport-------------------
