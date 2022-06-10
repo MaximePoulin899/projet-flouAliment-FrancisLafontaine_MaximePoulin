@@ -83,4 +83,16 @@ public class Employe {
     public int hashCode() {
         return Objects.hash(getNom(), getPrenom(), getType());
     }
+
+    @Override
+    public String toString() {
+        return "Employe{" +
+                "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", type='" + type + '\'' +
+//                ", montantUtiliserTranportJour=" + montantUtiliserTranportJour +
+//                ", montantUtiliserHebergementMois=" + montantUtiliserHebergementMois +
+//                ", montantUtiliserRestaurationJour=" + montantUtiliserRestaurationJour +
+                '}';
+    }
 }

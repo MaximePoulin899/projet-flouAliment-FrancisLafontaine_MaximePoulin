@@ -33,7 +33,7 @@ public class Main {
         try {
             listing.ajouterEmploye(employ1);
         } catch (ExceptionEmployeDejaEmploye e) {
-            JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Erreur sur employé, en double ! \n" + e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
         }
 
 
@@ -41,28 +41,28 @@ public class Main {
             listing.ajouterEmploye(employ5);//-------------------------on essaie d'ajout un doublon
         } catch (ExceptionEmployeDejaEmploye e) {
             System.out.println(e.getEmploye().toString());
-            JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Erreur sur employé, en double ! \n" + e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
         }
 
 
         try {
             listing.ajouterEmploye(employ2);
         } catch (ExceptionEmployeDejaEmploye e) {
-            JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Erreur sur employé, en double ! \n" + e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
         }
 
 
         try {
             listing.ajouterEmploye(employ3);
         } catch (ExceptionEmployeDejaEmploye e) {
-            JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Erreur sur employé, en double ! \n" + e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
         }
 
 
         try {
             listing.ajouterEmploye(employ4);
         } catch (ExceptionEmployeDejaEmploye e) {
-            JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Erreur sur employé, en double ! \n" + e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
         }
 
         ManipFichier.lecture("c:\\temporaire\\dataIn.txt", listing);//----------------------cela fonctionne a date si tu as le fichier dans ton ordinateur
