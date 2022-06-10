@@ -65,7 +65,8 @@ public class Main {
             JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
         }
 
-        ManipFichier.lecture("c:\\temporaire\\dataIn.txt", listing);
+        ManipFichier.lecture("c:\\temporaire\\dataIn.txt", listing);//----------------------cela fonctionne a date si tu as le fichier dans ton ordinateur
+        //-----------------------------------------------------------------------------il va falloir que je cherche pour faire passe un chemin relatif
 
 
         listing.listerEmployes();
