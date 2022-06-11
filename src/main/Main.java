@@ -77,64 +77,73 @@ public class Main {
         Employe empJunior = new Employe("Frank", "Boy", "junior",0,0,0);
         Employe empSenior = new Employe("Max", "Boy", "senior",0,0,0);
         Employe empSuper= new Employe("King", "Pin", "super",0,0,0);
+        Employe empSuper2= new Employe("Queen", "Pin", "super",0,0,0);
         Hebergement hebergement1 = new Hebergement(empJunior,"Hebergement",100,date);
         Hebergement hebergement2 = new Hebergement(empSenior,"Hebergement",100,date);
         Hebergement hebergement3 = new Hebergement(empSuper,"Hebergement",100,date);
+        Hebergement hebergement4 = new Hebergement(empSuper2,"Hebergement",100,date);
 
         // Creation de frais et test de rembo dispo
         hebergement1.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empJunior));
         hebergement2.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSenior));
         hebergement3.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSuper));
+        hebergement4.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSuper2));
         Transport transport = new Transport(empJunior,"Transport",100,date);
         transport.setRemboDispo(Utilitaire.calculRemboursementMaxTransport(empJunior));
         Restauration restauration = new Restauration(empSenior,"Restauration",100,date);
         restauration.setRemboDispo(Utilitaire.calculRemboursementMaxRestaurant(empSenior));
 
 
-        System.out.println(hebergement1);
-        System.out.println(hebergement2);
-        System.out.println(hebergement3);
-        System.out.println(transport);
-        System.out.println(restauration);
+//        System.out.println(hebergement1);
+//        System.out.println(hebergement2);
+//        System.out.println(hebergement3);
+//        System.out.println(transport);
+//        System.out.println(restauration);
 
 
         //Creer listing Frais
-        RegistreFrais listingFrais = new RegistreFrais();
+        RegistreFrais2 listingFrais = new RegistreFrais2();
 
 //       //  ajouter facture
         try {
-            listingFrais.ajouterFrais(transport);
+            listingFrais.ajouterFrais2(transport);
         } catch (ExceptionFraisExisteDeja e) {
             JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
         }
 
         try {
-            listingFrais.ajouterFrais(transport);
+            listingFrais.ajouterFrais2(transport);
         } catch (ExceptionFraisExisteDeja e) {
             JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
         }
 
 
         try {
-            listingFrais.ajouterFrais(hebergement2);
+            listingFrais.ajouterFrais2(hebergement2);
         } catch (ExceptionFraisExisteDeja e) {
             JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
         }
 
         try {
-            listingFrais.ajouterFrais(restauration);
+            listingFrais.ajouterFrais2(restauration);
         } catch (ExceptionFraisExisteDeja e) {
             JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
         }
 
         try {
-            listingFrais.ajouterFrais(hebergement1);
+            listingFrais.ajouterFrais2(hebergement1);
         } catch (ExceptionFraisExisteDeja e) {
             JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
         }
 
         try {
-            listingFrais.ajouterFrais(hebergement3);
+            listingFrais.ajouterFrais2(hebergement3);
+        } catch (ExceptionFraisExisteDeja e) {
+            JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
+        }
+
+        try {
+            listingFrais.ajouterFrais2(hebergement4);
         } catch (ExceptionFraisExisteDeja e) {
             JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
         }
