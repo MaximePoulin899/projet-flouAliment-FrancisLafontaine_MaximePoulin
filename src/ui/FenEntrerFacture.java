@@ -454,7 +454,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
 
     private void creerFraisRestaurant(Employe emp, LocalDate date, double montant) {
         Restauration restauration = new Restauration(emp, "Restaurant", montant, date);
-        restauration.setRemboDispo((Utilitaire.calculRemboursementMaxRestaurant(emp)));
+        restauration.setRemboDispo((Utilitaire.calculRemboursementMaxRestaurant(emp,listingFrais,restauration)));
         try {
             listingFrais.ajouterFrais2(restauration);
             clearChamps();

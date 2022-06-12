@@ -11,85 +11,72 @@ public class Utilitaire {
 
     public static double calculRemboursementMaxHebergement(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
         double montantRembourse = 0;
+        double montantUtilisePrealable = 0;
+        double remboDispoTotal = 0;
 
         switch (emp.getType()) {
-
             case "junior":
-                double remboDispoTotal = 1200;
-                double montantUtilise = 0;
-                double montantUtilisePrealable =0;
+                remboDispoTotal = 1200;
 
-                montantUtilise += frais.getPrixFacture();
+                montantUtilisePrealable = calculerMontantUtiliseMois(listingFrais, frais, montantUtilisePrealable, emp);
 
-
-
-                for (Frais tmp : listingFrais.getRegistreFrais2()) {
-                    if (frais.getDate().getMonth() == tmp.getDate().getMonth()
-                            && frais.getDate().getYear() == tmp.getDate().getYear()) {
-                        montantUtilisePrealable += tmp.getPrixFacture();
-                    }
-                }
-
-
-
-
-
-
-//                   if (remboDispoTotal > montantUtilise){
-//                    montantRembourse = frais.getPrixFacture();
-//                } else if (remboDispoTotal < montantUtilise){
-//                    montantRembourse = montantUtilisePrealable - remboDispoTotal;
-//                    JOptionPane.showMessageDialog(null, "Remboursement disponible dépassé.\n Voici le montant auquel " + emp.getPrenom() + " " + emp.getNom() + " aura droit: " + montantRembourse,
-//                            "Saisie de valeurs",
-//                            JOptionPane.ERROR_MESSAGE);
-//                }
-
-
-//                remboDispo = remboDispoTotal - montantUtilise;
-//                if (remboDispo < 0) {
-//                    remboDispo = 0;
-//                }
-
-
-
-                if (montantUtilise > remboDispoTotal || frais.getPrixFacture() > remboDispoTotal) {
-
-                    JOptionPane.showMessageDialog(null, "Remboursement disponible dépassé.\n Voici le montant auquel " + emp.getPrenom() + " " + emp.getNom() + " aura droit: " + montantRembourse,
-                            "Saisie de valeurs",
-                            JOptionPane.ERROR_MESSAGE);
-                }
-
-
-
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
 
                 break;
             case "senior":
-                montantRembourse = 1600;
+                remboDispoTotal = 1600;
+
+                montantUtilisePrealable = calculerMontantUtiliseMois(listingFrais, frais, montantUtilisePrealable, emp);
+
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
                 break;
             case "super":
-                montantRembourse = 3000;
+                remboDispoTotal = 3000;
+
+                montantUtilisePrealable = calculerMontantUtiliseMois(listingFrais, frais, montantUtilisePrealable, emp);
+
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+
                 break;
         }
         return montantRembourse;
-
     }
 
-    public static double calculRemboursementMaxRestaurant(Employe emp) {
-        double remboDispo = 0;
+
+    public static double calculRemboursementMaxRestaurant(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
+        double montantRembourse = 0;
+        double montantUtilisePrealable = 0;
+        double remboDispoTotal = 0;
 
         switch (emp.getType()) {
             case "junior":
-                remboDispo = 25;
+                remboDispoTotal = 25;
+
+                montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais, montantUtilisePrealable, emp);
+
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+
                 break;
             case "senior":
-                remboDispo = 40;
+                remboDispoTotal = 40;
+
+                montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais, montantUtilisePrealable, emp);
+
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
                 break;
+
+
             case "super":
-                remboDispo = 60;
+                remboDispoTotal = 60;
+
+                montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais, montantUtilisePrealable, emp);
+
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
                 break;
         }
-        return remboDispo;
+        return montantRembourse;
     }
+
 
     public static double calculRemboursementMaxTransport(Employe emp) {
         double remboDispo = 0;
@@ -112,6 +99,72 @@ public class Utilitaire {
         double remboDispoMois = 2000;
 
         return remboDispoMois;
+    }
+
+
+    /**
+     *
+     * @param listingFrais
+     * @param frais
+     * @param montantUtilisePrealable
+     * @param emp
+     * @return Le montant utilié au préalable par l'employé dans l'espace temps de un mois
+     */
+    private static double calculerMontantUtiliseMois(RegistreFrais2 listingFrais, Frais frais, double montantUtilisePrealable, Employe emp) {
+        for (Frais tmp : listingFrais.getRegistreFrais2()) {
+            if (frais.getDate().getYear() == tmp.getDate().getYear()
+                    && frais.getDate().getMonth() == tmp.getDate().getMonth()) {
+                montantUtilisePrealable += tmp.getPrixFacture();
+            }
+        }
+        return montantUtilisePrealable;
+    }
+
+    /**
+     *
+     * @param listingFrais
+     * @param frais
+     * @param montantUtilisePrealable
+     * @param emp
+     * @return Le montant utilié au préalable par l'employé dans l'espace temps de un jour
+     */
+    private static double calculerMontantUtiliseJour(RegistreFrais2 listingFrais, Frais frais, double montantUtilisePrealable, Employe emp) {
+        for (Frais tmp : listingFrais.getRegistreFrais2()) {
+            if (frais.getDate().getYear() == tmp.getDate().getYear()
+                    && frais.getDate().getMonth() == tmp.getDate().getMonth()
+                    &&frais.getDate().getDayOfMonth() == tmp.getDate().getDayOfMonth()) {
+                montantUtilisePrealable += tmp.getPrixFacture();
+            }
+        }
+        return montantUtilisePrealable;
+    }
+
+    /**
+     *
+     * @param montantUtilisePrealable
+     * @param remboDispoTotal
+     * @param emp
+     * @param frais
+     * @return Calcule le montant à remboursé selon le type d'employé.
+     */
+    private static double caculerMontantRembourse(double montantUtilisePrealable, double remboDispoTotal, Employe emp, Frais frais) {
+        double montantRembourse = 0;
+        if (montantUtilisePrealable > remboDispoTotal) {
+            alertDepassementRemboursement(emp, montantRembourse);
+            return montantRembourse = 0;
+        } else if ((montantUtilisePrealable + frais.getPrixFacture()) > remboDispoTotal) {
+            montantRembourse = remboDispoTotal - montantUtilisePrealable;
+            alertDepassementRemboursement(emp, montantRembourse);
+            return montantRembourse;
+        } else
+            return montantRembourse = frais.getPrixFacture();
+    }
+
+
+    private static void alertDepassementRemboursement(Employe emp, double montantRembourse) {
+        JOptionPane.showMessageDialog(null, "Remboursement disponible dépassé.\n Voici le montant auquel " + emp.getPrenom() + " " + emp.getNom() + " aura droit: " + montantRembourse,
+                "Saisie de valeurs",
+                JOptionPane.ERROR_MESSAGE);
     }
 
 }

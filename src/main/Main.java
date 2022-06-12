@@ -105,7 +105,9 @@ public class Main {
 
         // Creation de frais et test de rembo dispo
         hebergement1.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empJunior,listingFrais,hebergement1));
-        Transport transport = new Transport(empJunior,"Transport",100,LocalDate.now());
+        Transport transport = new Transport(empJunior,"hebergement",1000,LocalDate.now());
+
+
 
 
 //        System.out.println(hebergement1);
