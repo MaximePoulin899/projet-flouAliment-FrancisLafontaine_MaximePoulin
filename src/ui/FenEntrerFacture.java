@@ -24,6 +24,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
      */
     public FenEntrerFacture() {
         initComponents();
+        jCheckPlaneRide.setEnabled(false);
     }
 
     /**
@@ -114,50 +115,50 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jCheckTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckHebergement, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jCheckPlaneRide, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtDate))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtMontant, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jCheckTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jCheckHebergement, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jCheckRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jCheckPlaneRide, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(txtDate))
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(txtMontant, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel3)
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtMontant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckTransport)
-                    .addComponent(jCheckHebergement)
-                    .addComponent(jCheckRestaurant))
-                .addGap(18, 18, 18)
-                .addComponent(jCheckPlaneRide)
-                .addContainerGap(43, Short.MAX_VALUE))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel3)
+                                .addGap(29, 29, 29)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel4)
+                                        .addComponent(txtMontant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel5)
+                                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(51, 51, 51)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jCheckTransport)
+                                        .addComponent(jCheckHebergement)
+                                        .addComponent(jCheckRestaurant))
+                                .addGap(18, 18, 18)
+                                .addComponent(jCheckPlaneRide)
+                                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         jLabel6.setText("Information de l'employé");
@@ -190,46 +191,46 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPrenomEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNomEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jCheckJunior, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckSenior, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jCheckSuper, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(103, Short.MAX_VALUE))
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtPrenomEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(txtNomEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(jCheckJunior, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jCheckSenior, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(28, 28, 28)
+                                                .addComponent(jCheckSuper, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel6)
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtNomEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtPrenomEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckJunior)
-                    .addComponent(jCheckSenior)
-                    .addComponent(jCheckSuper))
-                .addContainerGap(79, Short.MAX_VALUE))
+                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel6)
+                                .addGap(29, 29, 29)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel7)
+                                        .addComponent(txtNomEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel8)
+                                        .addComponent(txtPrenomEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(51, 51, 51)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jCheckJunior)
+                                        .addComponent(jCheckSenior)
+                                        .addComponent(jCheckSuper))
+                                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         btnEffacer.setText("Effacer");
@@ -256,52 +257,52 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(159, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitre)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))))
-                        .addGap(355, 355, 355))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(313, 313, 313)
-                .addComponent(btnRetour)
-                .addGap(41, 41, 41)
-                .addComponent(btnSoumettre, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(btnEffacer, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(159, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lblTitre)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGap(27, 27, 27)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(jLabel1))))
+                                                .addGap(355, 355, 355))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(75, 75, 75)
+                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(67, 67, 67))))
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(313, 313, 313)
+                                .addComponent(btnRetour)
+                                .addGap(41, 41, 41)
+                                .addComponent(btnSoumettre, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(btnEffacer, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(lblTitre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRetour)
-                    .addComponent(btnSoumettre)
-                    .addComponent(btnEffacer))
-                .addContainerGap(48, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(lblTitre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1)
+                                .addGap(27, 27, 27)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(44, 44, 44)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnRetour)
+                                        .addComponent(btnSoumettre)
+                                        .addComponent(btnEffacer))
+                                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -312,35 +313,87 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         this();
         this.listing = listing;
         this.listingFrais = listingFrais;
+
+        jCheckPlaneRide.setEnabled(false);
+
     }
 
     private void jCheckTransportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckTransportActionPerformed
         // TODO add your handling code here:
+
+        if (jCheckTransport.isSelected()) {
+            jCheckHebergement.setEnabled(false);
+            jCheckPlaneRide.setEnabled(false);
+            jCheckRestaurant.setEnabled(false);
+
+//            J'essayais de trouver une manière que si tu décoches la case, les autres cases deviennent disponibles.
+//
+//            if (!jCheckTransport.isSelected()){
+//                jCheckHebergement.setEnabled(true);
+//                jCheckPlaneRide.setEnabled(true);
+//                jCheckRestaurant.setEnabled(true);
+//            }
+        }
+
     }//GEN-LAST:event_jCheckTransportActionPerformed
+
+    private void jCheckPlaneRideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckPlaneRideActionPerformed
+        // TODO add your handling code here:
+        if (jCheckPlaneRide.isSelected()) {
+            jCheckHebergement.setEnabled(false);
+            jCheckTransport.setEnabled(false);
+            jCheckRestaurant.setEnabled(false);
+        }
+
+    }//GEN-LAST:event_jCheckPlaneRideActionPerformed
 
     private void jCheckHebergementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckHebergementActionPerformed
         // TODO add your handling code here:
+        if (jCheckHebergement.isSelected()) {
+            jCheckRestaurant.setEnabled(false);
+            jCheckTransport.setEnabled(false);
+            jCheckPlaneRide.setEnabled(false);
+        }
     }//GEN-LAST:event_jCheckHebergementActionPerformed
 
     private void jCheckRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckRestaurantActionPerformed
         // TODO add your handling code here:
+        if (jCheckRestaurant.isSelected()) {
+            jCheckHebergement.setEnabled(false);
+            jCheckTransport.setEnabled(false);
+            jCheckPlaneRide.setEnabled(false);
+
+        }
+
     }//GEN-LAST:event_jCheckRestaurantActionPerformed
 
     private void jCheckJuniorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckJuniorActionPerformed
         // TODO add your handling code here:
+        if (jCheckJunior.isSelected()) {
+            jCheckSenior.setEnabled(false);
+            jCheckSuper.setEnabled(false);
+            jCheckPlaneRide.setEnabled(false);
+        }
     }//GEN-LAST:event_jCheckJuniorActionPerformed
 
     private void jCheckSeniorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSeniorActionPerformed
         // TODO add your handling code here:
+        if (jCheckSenior.isSelected()) {
+            jCheckJunior.setEnabled(false);
+            jCheckSuper.setEnabled(false);
+            jCheckPlaneRide.setEnabled(false);
+        }
     }//GEN-LAST:event_jCheckSeniorActionPerformed
 
     private void jCheckSuperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSuperActionPerformed
         // TODO add your handling code here:
+        if (jCheckSuper.isSelected()) {
+            jCheckPlaneRide.setEnabled(true);
+            jCheckJunior.setEnabled(false);
+            jCheckSenior.setEnabled(false);
+        }
     }//GEN-LAST:event_jCheckSuperActionPerformed
 
-    private void jCheckPlaneRideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckPlaneRideActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckPlaneRideActionPerformed
 
     private void btnRetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetourActionPerformed
         // TODO add your handling code here:
@@ -367,34 +420,92 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         boolean dateValide = validerDate(date);
 
         //Valider que le montant est un nombre et nombre positif
+        double montant = Double.parseDouble(txtMontant.getText());
+        boolean montantValide = validerMontant(montant);
 
 
-        if (statut && EmployeExiste && dateValide) {
+        if (statut && EmployeExiste && dateValide && montantValide) {
             //Creer un instance de l'employe afin de créer le Frais
             Employe emp = trouverEmploye();
 
 
             if (jCheckHebergement.isSelected()) {
-                Hebergement hebergement = new Hebergement(emp, "hebergement", Double.parseDouble(txtMontant.getText()), date);
-                hebergement.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(emp));
-
-                try {
-                    listingFrais.ajouterFrais2(hebergement);
-
-                    clearChamps();
-                } catch (ExceptionFraisExisteDeja e) {
-                    JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
-                }
-
-            }
+                creerFraisHergement(emp, date, montant);
+            } else if (jCheckTransport.isSelected()) {
+                creerFraisTransport(emp, date, montant);
+            } else if (jCheckRestaurant.isSelected()) {
+                creerFraisRestaurant(emp, date, montant);
+            } else
+                creerFraisTransportAvion(emp, date, montant);
         }
     }//GEN-LAST:event_btnSoumettreActionPerformed
+
+
+    private void creerFraisTransportAvion(Employe emp, LocalDate date, double montant) {
+        Transport transport = new Transport(emp, " Transport", montant, date);
+        transport.setRemboDispo((Utilitaire.calculRemboursementMaxTransportAvion(emp)));
+        try {
+            listingFrais.ajouterFrais2(transport);
+            clearChamps();
+        } catch (ExceptionFraisExisteDeja e) {
+            JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void creerFraisRestaurant(Employe emp, LocalDate date, double montant) {
+        Restauration restauration = new Restauration(emp, "Restaurant", montant, date);
+        restauration.setRemboDispo((Utilitaire.calculRemboursementMaxRestaurant(emp)));
+        try {
+            listingFrais.ajouterFrais2(restauration);
+            clearChamps();
+        } catch (ExceptionFraisExisteDeja e) {
+            JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void creerFraisTransport(Employe emp, LocalDate date, double montant) {
+        Transport transport = new Transport(emp, " Transport", montant, date);
+        transport.setRemboDispo((Utilitaire.calculRemboursementMaxTransport(emp)));
+        try {
+            listingFrais.ajouterFrais2(transport);
+            clearChamps();
+        } catch (ExceptionFraisExisteDeja e) {
+            JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    private void creerFraisHergement(Employe emp, LocalDate date, double montant) {
+        Hebergement hebergement = new Hebergement(emp, "Hebergement", montant, date);
+        hebergement.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(emp));
+
+        try {
+            listingFrais.ajouterFrais2(hebergement);
+
+            clearChamps();
+        } catch (ExceptionFraisExisteDeja e) {
+            JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    private boolean validerMontant(double montant) {
+        boolean flag = true;
+        if (montant < 0) {
+            flag = false;
+            JOptionPane.showMessageDialog(null, "Le montant doit être positif",
+                    "Saisie de valeurs",
+                    JOptionPane.ERROR_MESSAGE);
+            return flag;
+        }
+        return flag;
+    }
 
     private boolean validerDate(LocalDate date) {
         boolean flag = true;
         LocalDate dateNow = LocalDate.now();
 
-        if (date.isAfter(dateNow)){
+        if (date.isAfter(dateNow)) {
             flag = false;
             JOptionPane.showMessageDialog(null, "La date doit être dans le passé",
                     "Saisie de valeurs",
@@ -419,9 +530,6 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDateActionPerformed
 
-    private void creerFraisHergement() {
-
-    }
 
     private Employe trouverEmploye() {
         Employe empVide = new Employe();
@@ -500,6 +608,8 @@ public class FenEntrerFacture extends javax.swing.JFrame {
     }
 
     private void clearChamps() {
+
+
         //vider les checks
         jCheckHebergement.setEnabled(true);
         jCheckHebergement.setSelected(false);
@@ -514,6 +624,8 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         jCheckSuper.setSelected(false);
         jCheckTransport.setEnabled(true);
         jCheckTransport.setSelected(false);
+//        jCheckPlaneRide.setEnabled(true);
+//        jCheckPlaneRide.setSelected(false);
         //vider les champs
         txtNomEmp.setText("");
         txtPrenomEmp.setText("");

@@ -21,19 +21,7 @@ public class Utilitaire {
                 break;
         }
         return remboDispo;
-        /**
-         * Avec Boucle if
-         */
-//        if (emp.getType().equalsIgnoreCase("junior")) {
-//            return 1200;
-//        } else if (emp.getType().equalsIgnoreCase("senior")) {
-//            return 1600;
-//        } else if (emp.getType().equalsIgnoreCase("super")) {
-//            return 3000;
-//        } else {
-//            return 0;
-//        }
-//        }
+
     }
 
     public static double calculRemboursementMaxRestaurant(Employe emp) {
@@ -68,6 +56,12 @@ public class Utilitaire {
                 break;
         }
         return remboDispo;
+    }
+
+    public static double calculRemboursementMaxTransportAvion(Employe emp) {
+        double remboDispoMois = 2000;
+
+        return remboDispoMois;
     }
 
 }
