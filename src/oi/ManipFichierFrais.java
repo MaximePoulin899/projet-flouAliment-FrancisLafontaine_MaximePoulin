@@ -1,14 +1,19 @@
 package oi;
 
 
-import modele.Frais;
+import modele.*;
 
-import modele.RegistreFrais2;
+import utils.ExceptionEmployeDejaEmploye;
+import utils.ExceptionFraisExisteDeja;
 
 
+import javax.swing.*;
 import java.io.*;
+import java.time.LocalDate;
 
 public class ManipFichierFrais {
+
+
 
 
     public static void ecriture(String fichier, RegistreFrais2 listingFrais) {

@@ -191,7 +191,7 @@ private RegistreEmploye listing;
     }//GEN-LAST:event_btnRetourActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        ManipFichier.ecriture("c:\\temporaire\\dataout.txt", listing);
+        ManipFichier.ecriture("src/data/dataOut.txt", listing);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     /**

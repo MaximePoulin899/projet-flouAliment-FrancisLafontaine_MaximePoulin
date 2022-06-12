@@ -1,0 +1,5 @@
+Barrest;Manon;junior
+Dicoco;Sergio;super
+Flouflou;Alain;junior
+Lafleur;Ti-Guy;senior
+Pou;Max;junior
