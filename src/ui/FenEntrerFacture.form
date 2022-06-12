@@ -113,16 +113,6 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel5" min="-2" pref="53" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtDate" min="-2" pref="188" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel4" min="-2" pref="53" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtMontant" min="-2" pref="188" max="-2" attributes="0"/>
-                      </Group>
                       <Component id="jLabel3" min="-2" pref="162" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jCheckTransport" min="-2" pref="86" max="-2" attributes="0"/>
@@ -132,6 +122,18 @@
                           <Component id="jCheckRestaurant" min="-2" pref="91" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jCheckPlaneRide" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel5" min="-2" pref="53" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtDate" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel4" min="-2" pref="53" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtMontant" min="-2" pref="188" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <EmptySpace pref="47" max="32767" attributes="0"/>
               </Group>
@@ -183,8 +185,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtMontant">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtDate">
-        </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckTransport">
           <Properties>
             <Property name="text" type="java.lang.String" value="Transport"/>
@@ -215,6 +215,11 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckPlaneRideActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtDate">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDateActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
