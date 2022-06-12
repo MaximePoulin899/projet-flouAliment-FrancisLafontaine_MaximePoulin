@@ -47,5 +47,12 @@ public class RegistreFrais2 {
     }
 
 
-
+    public String afficherFrais() {
+        StringBuilder sb = new StringBuilder();
+        for (Frais tmp: registreFrais2) {
+            sb.append(tmp);
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 }

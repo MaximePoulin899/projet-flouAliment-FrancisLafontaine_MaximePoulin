@@ -5,6 +5,8 @@
 package ui;
 
 import modele.RegistreEmploye;
+import modele.RegistreFrais;
+import modele.RegistreFrais2;
 
 /**
  *
@@ -12,6 +14,7 @@ import modele.RegistreEmploye;
  */
 public class FenMenu extends javax.swing.JFrame {
     RegistreEmploye listing;
+    RegistreFrais2 listingFrais;
 
     /**
      * Creates new form FenMenu
@@ -19,9 +22,10 @@ public class FenMenu extends javax.swing.JFrame {
     public FenMenu() {
         initComponents();
     }
-    public FenMenu(RegistreEmploye listing) {
+    public FenMenu(RegistreEmploye listing, RegistreFrais2 listingFrais) {
         this();
         this.listing = listing;
+        this.listingFrais = listingFrais;
     }
 
 
@@ -233,7 +237,7 @@ public class FenMenu extends javax.swing.JFrame {
     private void btnAfficherListFraisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfficherListFraisActionPerformed
         // TODO add your handling code here:--------------------------------------------------bouton afficher Liste de frais 
         
-        FenListingFacture fenListingFacture = new FenListingFacture();
+        FenListingFacture fenListingFacture = new FenListingFacture(listingFrais);
         fenListingFacture.setVisible(true);        
     }//GEN-LAST:event_btnAfficherListFraisActionPerformed
 

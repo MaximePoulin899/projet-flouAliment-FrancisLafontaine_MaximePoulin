@@ -4,12 +4,19 @@
  */
 package ui;
 
+import modele.Employe;
+import modele.Frais;
+import modele.RegistreFrais;
+import modele.RegistreFrais2;
+
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Maxime
  */
 public class FenListingFacture extends javax.swing.JFrame {
-
+private RegistreFrais2 listingFrais2;
     /**
      * Creates new form FenListingFacture
      */
@@ -45,10 +52,7 @@ public class FenListingFacture extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Prenom", "Nom", "Type d'employé", "Type de frais", "Montant Demandé", "Montant Remboursé", "Date"
@@ -104,8 +108,8 @@ public class FenListingFacture extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(btnRetour)
                 .addGap(56, 56, 56))
         );
@@ -113,6 +117,20 @@ public class FenListingFacture extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+
+    public FenListingFacture(RegistreFrais2 listingFrais2){
+        this();
+        this.listingFrais2 = listingFrais2;
+        String resultat = listingFrais2.afficherFrais();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+
+        for (Frais frais: listingFrais2.getRegistreFrais2()) {
+            model.addRow(new Object[]{frais.getEmploye().getPrenom(),frais.getEmploye().getNom(), frais.getEmploye().getType(),frais.getTypeFrais(),frais.getPrixFacture(),frais.getRemboDispo(),frais.getDate() });
+        }
+
+    }
 
     private void btnRetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetourActionPerformed
         // TODO add your handling code here:

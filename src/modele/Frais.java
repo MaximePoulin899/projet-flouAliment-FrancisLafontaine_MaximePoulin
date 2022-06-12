@@ -1,6 +1,6 @@
 package modele;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public abstract class Frais {
@@ -8,12 +8,12 @@ public abstract class Frais {
     private String typeFrais;
     private double prixFacture;
     private double remboDispo;
-    private Date date;
+    private LocalDate date;
 
     public Frais() {
     }
 
-    public Frais(Employe employe, String typeFrais, double prixFacture, Date date) {
+    public Frais(Employe employe, String typeFrais, double prixFacture, LocalDate date) {
         this.employe = employe;
         this.typeFrais = typeFrais;
         this.prixFacture = prixFacture;
@@ -52,11 +52,11 @@ public abstract class Frais {
         this.remboDispo = remboDispo;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

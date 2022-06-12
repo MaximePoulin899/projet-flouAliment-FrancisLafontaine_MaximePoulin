@@ -8,6 +8,9 @@ import utils.ExceptionFraisExisteDeja;
 import utils.Utilitaire;
 
 import javax.swing.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Main {
@@ -73,24 +76,25 @@ public class Main {
 
 
         //----------------Test des RemboDispo Hebergement/Restaurant/Transport-------------------
-        Date date = new Date();
+
         Employe empJunior = new Employe("Frank", "Boy", "junior",0,0,0);
         Employe empSenior = new Employe("Max", "Boy", "senior",0,0,0);
         Employe empSuper= new Employe("King", "Pin", "super",0,0,0);
         Employe empSuper2= new Employe("Queen", "Pin", "super",0,0,0);
-        Hebergement hebergement1 = new Hebergement(empJunior,"Hebergement",100,date);
-        Hebergement hebergement2 = new Hebergement(empSenior,"Hebergement",100,date);
-        Hebergement hebergement3 = new Hebergement(empSuper,"Hebergement",100,date);
-        Hebergement hebergement4 = new Hebergement(empSuper2,"Hebergement",100,date);
+        Hebergement hebergement1 = new Hebergement(empJunior,"Hebergement",100,LocalDate.of(2021,3,25));
+        LocalDate date2;
+        Hebergement hebergement2 = new Hebergement(empSenior,"Hebergement",100, LocalDate.now());
+        Hebergement hebergement3 = new Hebergement(empSuper,"Hebergement",100,LocalDate.now());
+        Hebergement hebergement4 = new Hebergement(empSuper2,"Hebergement",100,LocalDate.now());
 
         // Creation de frais et test de rembo dispo
         hebergement1.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empJunior));
         hebergement2.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSenior));
         hebergement3.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSuper));
         hebergement4.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSuper2));
-        Transport transport = new Transport(empJunior,"Transport",100,date);
+        Transport transport = new Transport(empJunior,"Transport",100,LocalDate.now());
         transport.setRemboDispo(Utilitaire.calculRemboursementMaxTransport(empJunior));
-        Restauration restauration = new Restauration(empSenior,"Restauration",100,date);
+        Restauration restauration = new Restauration(empSenior,"Restauration",100,LocalDate.now());
         restauration.setRemboDispo(Utilitaire.calculRemboursementMaxRestaurant(empSenior));
 
 
@@ -163,6 +167,7 @@ public class Main {
 
 
 
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -189,7 +194,8 @@ public class Main {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenMenu(listing).setVisible(true);
+                new FenMenu(listing, listingFrais).setVisible(true);
+
             }
         });
     }

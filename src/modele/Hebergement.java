@@ -1,6 +1,6 @@
 package modele;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Hebergement extends Frais {
 
@@ -8,7 +8,7 @@ public class Hebergement extends Frais {
     public Hebergement() {
     }
 
-    public Hebergement(Employe employe, String typeFrais, double prixFacture, Date date) {
+    public Hebergement(Employe employe, String typeFrais, double prixFacture, LocalDate date) {
         super(employe, typeFrais, prixFacture, date);
     }
 
@@ -54,12 +54,12 @@ public class Hebergement extends Frais {
     }
 
     @Override
-    public Date getDate() {
+    public LocalDate getDate() {
         return super.getDate();
     }
 
     @Override
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         super.setDate(date);
     }
 

@@ -1,12 +1,11 @@
 package oi;
 
-import modele.Employe;
-import modele.Frais;
-import modele.RegistreEmploye;
-import modele.RegistreFrais2;
-import utils.ExceptionEmployeDejaEmploye;
 
-import javax.swing.*;
+import modele.Frais;
+
+import modele.RegistreFrais2;
+
+
 import java.io.*;
 
 public class ManipFichierFrais {
@@ -33,6 +32,6 @@ public class ManipFichierFrais {
     }
 
     public static String formerLigne(Frais frais) {
-        return frais.getEmploye().getNom() + ";" + frais.getEmploye().getPrenom() + ";" + frais.getEmploye().getType() + ";" + frais.getTypeFrais() + ";" + frais.getPrixFacture() + ";" + frais.getRemboDispo() + ";" + frais.getDate();
+        return frais.getEmploye().getNom() + ";" + frais.getEmploye().getPrenom() + ";" + frais.getEmploye().getType() + ";" + frais.getTypeFrais() + ";" + frais.getPrixFacture() + ";" + frais.getRemboDispo() + ";" + frais.getDate() + "\n";
     }
 }
