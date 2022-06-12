@@ -477,7 +477,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
 
     private void creerFraisHergement(Employe emp, LocalDate date, double montant) {
         Hebergement hebergement = new Hebergement(emp, "Hebergement", montant, date);
-        hebergement.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(emp));
+        hebergement.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(emp,listingFrais,hebergement));
 
         try {
             listingFrais.ajouterFrais2(hebergement);

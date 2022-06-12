@@ -56,6 +56,8 @@ public class Main {
         }
 
 
+
+
         try {
             listing.ajouterEmploye(employ3);
         } catch (ExceptionEmployeDejaEmploye e) {
@@ -69,6 +71,21 @@ public class Main {
             JOptionPane.showMessageDialog(null,"Erreur sur employé, en double ! \n" + e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
         }
 
+        
+
+        
+        
+
+
+
+
+        
+
+
+
+
+
+
         ManipFichier.lecture("src/data/dataIn.txt", listing);//----------------------cela fonctionne a date si tu as le fichier dans ton ordinateur
         //-----------------------------------------------------------------------------il va falloir que je cherche pour faire passe un chemin relatif
 
@@ -77,25 +94,18 @@ public class Main {
 
         //----------------Test des RemboDispo Hebergement/Restaurant/Transport-------------------
 
-        Employe empJunior = new Employe("Frank", "Boy", "junior",0,0,0);
-        Employe empSenior = new Employe("Max", "Boy", "senior",0,0,0);
-        Employe empSuper= new Employe("King", "Pin", "super",0,0,0);
-        Employe empSuper2= new Employe("Queen", "Pin", "super",0,0,0);
-        Hebergement hebergement1 = new Hebergement(empJunior,"Hebergement",100,LocalDate.of(2021,3,25));
+        Employe empJunior = new Employe("Pou", "Max", "junior",0,0,0);
+//
+        Hebergement hebergement1 = new Hebergement(empJunior,"Hebergement",1000,LocalDate.of(2000,1,25));
         LocalDate date2;
-        Hebergement hebergement2 = new Hebergement(empSenior,"Hebergement",100, LocalDate.now());
-        Hebergement hebergement3 = new Hebergement(empSuper,"Hebergement",100,LocalDate.now());
-        Hebergement hebergement4 = new Hebergement(empSuper2,"Hebergement",100,LocalDate.now());
+
+
+        //Creer listing Frais
+        RegistreFrais2 listingFrais = new RegistreFrais2();
 
         // Creation de frais et test de rembo dispo
-        hebergement1.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empJunior));
-        hebergement2.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSenior));
-        hebergement3.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSuper));
-        hebergement4.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empSuper2));
+        hebergement1.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empJunior,listingFrais,hebergement1));
         Transport transport = new Transport(empJunior,"Transport",100,LocalDate.now());
-        transport.setRemboDispo(Utilitaire.calculRemboursementMaxTransport(empJunior));
-        Restauration restauration = new Restauration(empSenior,"Restauration",100,LocalDate.now());
-        restauration.setRemboDispo(Utilitaire.calculRemboursementMaxRestaurant(empSenior));
 
 
 //        System.out.println(hebergement1);
@@ -105,8 +115,7 @@ public class Main {
 //        System.out.println(restauration);
 
 
-        //Creer listing Frais
-        RegistreFrais2 listingFrais = new RegistreFrais2();
+
 
 //       //  ajouter facture
         try {
@@ -122,35 +131,7 @@ public class Main {
         }
 
 
-        try {
-            listingFrais.ajouterFrais2(hebergement2);
-        } catch (ExceptionFraisExisteDeja e) {
-            JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
-        }
 
-        try {
-            listingFrais.ajouterFrais2(restauration);
-        } catch (ExceptionFraisExisteDeja e) {
-            JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
-        }
-
-        try {
-            listingFrais.ajouterFrais2(hebergement1);
-        } catch (ExceptionFraisExisteDeja e) {
-            JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
-        }
-
-        try {
-            listingFrais.ajouterFrais2(hebergement3);
-        } catch (ExceptionFraisExisteDeja e) {
-            JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
-        }
-
-        try {
-            listingFrais.ajouterFrais2(hebergement4);
-        } catch (ExceptionFraisExisteDeja e) {
-            JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
-        }
 
 
 
@@ -171,7 +152,7 @@ public class Main {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
