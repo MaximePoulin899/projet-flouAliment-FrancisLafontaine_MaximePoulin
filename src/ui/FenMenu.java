@@ -229,7 +229,7 @@ public class FenMenu extends javax.swing.JFrame {
     private void btnEntrerFactureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrerFactureActionPerformed
         // TODO add your handling code here:--------------------------------------------------bouton entrer nouvelle Facture
         
-        FenEntrerFacture fenEntrerFacture = new FenEntrerFacture();
+        FenEntrerFacture fenEntrerFacture = new FenEntrerFacture(listing, listingFrais);
         fenEntrerFacture.setVisible(true);
         
     }//GEN-LAST:event_btnEntrerFactureActionPerformed

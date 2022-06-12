@@ -4,9 +4,7 @@
  */
 package ui;
 
-import modele.Employe;
 import modele.Frais;
-import modele.RegistreFrais;
 import modele.RegistreFrais2;
 
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Maxime
  */
 public class FenListingFacture extends javax.swing.JFrame {
-private RegistreFrais2 listingFrais2;
+    private RegistreFrais2 listingFrais;
     /**
      * Creates new form FenListingFacture
      */
@@ -119,14 +117,13 @@ private RegistreFrais2 listingFrais2;
     }// </editor-fold>//GEN-END:initComponents
 
 
-    public FenListingFacture(RegistreFrais2 listingFrais2){
+    public FenListingFacture(RegistreFrais2 listingFrais){
         this();
-        this.listingFrais2 = listingFrais2;
-        String resultat = listingFrais2.afficherFrais();
+        this.listingFrais = listingFrais;
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
 
-        for (Frais frais: listingFrais2.getRegistreFrais2()) {
+        for (Frais frais: listingFrais.getRegistreFrais2()) {
             model.addRow(new Object[]{frais.getEmploye().getPrenom(),frais.getEmploye().getNom(), frais.getEmploye().getType(),frais.getTypeFrais(),frais.getPrixFacture(),frais.getRemboDispo(),frais.getDate() });
         }
 

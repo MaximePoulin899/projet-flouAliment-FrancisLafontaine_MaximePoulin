@@ -4,11 +4,20 @@
  */
 package ui;
 
+import modele.*;
+import utils.ExceptionFraisExisteDeja;
+import utils.Utilitaire;
+
+import javax.swing.*;
+import java.time.LocalDate;
+
 /**
- *
  * @author Maxime
  */
 public class FenEntrerFacture extends javax.swing.JFrame {
+
+    private RegistreEmploye listing;
+    private RegistreFrais2 listingFrais;
 
     /**
      * Creates new form FenEntrerFacture
@@ -34,11 +43,11 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtMontant = new javax.swing.JTextField();
-        txtDate = new javax.swing.JTextField();
         jCheckTransport = new javax.swing.JCheckBox();
         jCheckHebergement = new javax.swing.JCheckBox();
         jCheckRestaurant = new javax.swing.JCheckBox();
         jCheckPlaneRide = new javax.swing.JCheckBox();
+        txtDate = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -96,6 +105,12 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             }
         });
 
+        txtDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -103,14 +118,6 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMontant, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jCheckTransport, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -118,7 +125,16 @@ public class FenEntrerFacture extends javax.swing.JFrame {
                         .addComponent(jCheckHebergement, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCheckRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jCheckPlaneRide, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckPlaneRide, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtDate))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtMontant, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -292,6 +308,12 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public FenEntrerFacture(RegistreEmploye listing, RegistreFrais2 listingFrais) {
+        this();
+        this.listing = listing;
+        this.listingFrais = listingFrais;
+    }
+
     private void jCheckTransportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckTransportActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckTransportActionPerformed
@@ -328,14 +350,177 @@ public class FenEntrerFacture extends javax.swing.JFrame {
     private void btnEffacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEffacerActionPerformed
         // TODO add your handling code here:       
         clearChamps();
-        
-        
-        
+
+
     }//GEN-LAST:event_btnEffacerActionPerformed
 
     private void btnSoumettreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSoumettreActionPerformed
         // TODO add your handling code here:
+
+        boolean statut = validerData();
+
+        //Recherche de l'employer dans la liste
+        boolean EmployeExiste = validerEmploye();
+
+        //Valider que la date est dans le passé
+        LocalDate date = parserTxtDate(txtDate.getText());
+        boolean dateValide = validerDate(date);
+
+        //Valider que le montant est un nombre et nombre positif
+
+
+        if (statut && EmployeExiste && dateValide) {
+            //Creer un instance de l'employe afin de créer le Frais
+            Employe emp = trouverEmploye();
+
+
+            if (jCheckHebergement.isSelected()) {
+                Hebergement hebergement = new Hebergement(emp, "hebergement", Double.parseDouble(txtMontant.getText()), date);
+                hebergement.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(emp));
+
+                try {
+                    listingFrais.ajouterFrais2(hebergement);
+
+                    clearChamps();
+                } catch (ExceptionFraisExisteDeja e) {
+                    JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+        }
     }//GEN-LAST:event_btnSoumettreActionPerformed
+
+    private boolean validerDate(LocalDate date) {
+        boolean flag = true;
+        LocalDate dateNow = LocalDate.now();
+
+        if (date.isAfter(dateNow)){
+            flag = false;
+            JOptionPane.showMessageDialog(null, "La date doit être dans le passé",
+                    "Saisie de valeurs",
+                    JOptionPane.ERROR_MESSAGE);
+            return flag;
+        }
+        return flag;
+    }
+
+    private LocalDate parserTxtDate(String text) {
+        String[] tokens = text.split("-");
+        int year = (Integer.parseInt(tokens[0]));
+        int month = (Integer.parseInt(tokens[1]));
+        int day = (Integer.parseInt(tokens[2]));
+
+        return LocalDate.of(year, month, day);
+
+    }
+
+
+    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDateActionPerformed
+
+    private void creerFraisHergement() {
+
+    }
+
+    private Employe trouverEmploye() {
+        Employe empVide = new Employe();
+        for (Employe emp : listing.getRegistre()) {
+            if (txtNomEmp.getText().equalsIgnoreCase(emp.getNom())
+                    && txtPrenomEmp.getText().equalsIgnoreCase(emp.getPrenom())) {
+                return emp;
+            }
+        }
+        return empVide;
+    }
+
+    private boolean validerEmploye() {
+        boolean trouve = false;
+
+        for (Employe emp : listing.getRegistre()) {
+            if (txtNomEmp.getText().equalsIgnoreCase(emp.getNom())
+                    && txtPrenomEmp.getText().equalsIgnoreCase(emp.getPrenom())) {
+                //&& IL MANQUE LA CLOSE DU TYPE--- Pas trouvé comment.... )
+                trouve = true;
+                return trouve;
+            }
+        }
+
+        if (!trouve) {
+            JOptionPane.showMessageDialog(null, "Employe inexistant! ",
+                    "Saisie de valeurs",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+        return trouve;
+    }
+
+    private boolean validerData() {
+        boolean flag = true;
+        if (txtNomEmp.getText().isEmpty()) {
+            flag = false;
+            JOptionPane.showMessageDialog(null, "Hey oui !! Le nom est Obligatoire ! ",
+                    "Saisie de valeurs",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        if (txtPrenomEmp.getText().isEmpty()) {
+            flag = false;
+            JOptionPane.showMessageDialog(null, "Hey oui !! Le prénom est obligatoire !",
+                    "Saisie de valeurs",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        if (txtMontant.getText().isEmpty()) {
+            flag = false;
+            JOptionPane.showMessageDialog(null, "Hey oui !! Le montant est Obligatoire ! ",
+                    "Saisie de valeurs",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        if (txtDate.getText().isEmpty()) {
+            flag = false;
+            JOptionPane.showMessageDialog(null, "Hey oui !! Le date est obligatoire !",
+                    "Saisie de valeurs",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (!jCheckJunior.isSelected() && !jCheckSenior.isSelected() && !jCheckSuper.isSelected()) {
+            flag = false;
+            JOptionPane.showMessageDialog(null, "Le choix du type d'employé est obligatoire.",
+                    "Saisie de valeurs",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (!jCheckJunior.isSelected() && !jCheckSenior.isSelected() && !jCheckSuper.isSelected()) {
+            flag = false;
+            JOptionPane.showMessageDialog(null, "Le choix du type de facture est obligatoire.",
+                    "Saisie de valeurs",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+        return flag;
+    }
+
+    private void clearChamps() {
+        //vider les checks
+        jCheckHebergement.setEnabled(true);
+        jCheckHebergement.setSelected(false);
+        jCheckJunior.setEnabled(true);
+        jCheckJunior.setSelected(false);
+        jCheckPlaneRide.setSelected(false);
+        jCheckRestaurant.setEnabled(true);
+        jCheckRestaurant.setSelected(false);
+        jCheckSenior.setEnabled(true);
+        jCheckSenior.setSelected(false);
+        jCheckSuper.setEnabled(true);
+        jCheckSuper.setSelected(false);
+        jCheckTransport.setEnabled(true);
+        jCheckTransport.setSelected(false);
+        //vider les champs
+        txtNomEmp.setText("");
+        txtPrenomEmp.setText("");
+        txtMontant.setText("");
+        txtDate.setText("");
+    }
+
 
     /**
      * @param args the command line arguments
@@ -344,7 +529,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -372,6 +557,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             }
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEffacer;
@@ -401,12 +587,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrenomEmp;
     // End of variables declaration//GEN-END:variables
 
-    private void clearChamps() {       
-        txtNomEmp.setText("");
-        txtPrenomEmp.setText("");
-        txtMontant.setText("");
-        txtDate.setText("");
-    }
+
 }
 
  
