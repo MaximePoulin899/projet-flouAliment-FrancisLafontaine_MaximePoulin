@@ -7,9 +7,7 @@ public class Employe {
     private String nom;
     private String prenom;
     private String type;
-    private double montantUtiliserTranportJour;
-    private double montantUtiliserHebergementMois;
-    private double montantUtiliserRestaurationJour;
+
 
     public Employe() {
     }
@@ -18,9 +16,7 @@ public class Employe {
         this.nom = nom;
         this.prenom = prenom;
         this.type = type;
-        this.montantUtiliserTranportJour = montantUtiliserTranportJour;
-        this.montantUtiliserHebergementMois = montantUtiliserHebergementMois;
-        this.montantUtiliserRestaurationJour = montantUtiliserRestaurationJour;
+
     }
 
     public String getNom() {
@@ -47,29 +43,7 @@ public class Employe {
         this.type = type;
     }
 
-    public double getMontantUtiliserTranportJour() {
-        return montantUtiliserTranportJour;
-    }
 
-    public void setMontantUtiliserTranportJour(double montantUtiliserTranportJour) {
-        this.montantUtiliserTranportJour = montantUtiliserTranportJour;
-    }
-
-    public double getMontantUtiliserHebergementMois() {
-        return montantUtiliserHebergementMois;
-    }
-
-    public void setMontantUtiliserHebergementMois(double montantUtiliserHebergementMois) {
-        this.montantUtiliserHebergementMois = montantUtiliserHebergementMois;
-    }
-
-    public double getMontantUtiliserRestaurationJour() {
-        return montantUtiliserRestaurationJour;
-    }
-
-    public void setMontantUtiliserRestaurationJour(double montantUtiliserRestaurationJour) {
-        this.montantUtiliserRestaurationJour = montantUtiliserRestaurationJour;
-    }
 
     @Override
     public boolean equals(Object o) {

@@ -25,70 +25,18 @@ public class Main {
 
 
         RegistreEmploye listing = new RegistreEmploye();
-
-        Employe employ1 = new Employe("Flouflou", "Alain", "junior",0.0,0.0,0.0);
-        Employe employ5 = new Employe("Flouflou", "Alain", "junior",0.0,0.0,0.0);
-        Employe employ2 = new Employe("Lafleur", "Ti-Guy", "senior",0.0,0.0,0.0);
-        Employe employ3 = new Employe("Dicoco", "Sergio", "super",0.0,0.0,0.0);
-        Employe employ4 = new Employe("Barrest", "Manon", "junior",0.0,0.0,0.0);
-
-
-
-        try {
-            listing.ajouterEmploye(employ1);
-        } catch (ExceptionEmployeDejaEmploye e) {
-            JOptionPane.showMessageDialog(null,"Erreur sur employé, en double ! \n" + e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
-        }
-
-
-        try {
-            listing.ajouterEmploye(employ5);//-------------------------on essaie d'ajout un doublon
-        } catch (ExceptionEmployeDejaEmploye e) {
-            System.out.println(e.getEmploye().toString());
-            JOptionPane.showMessageDialog(null,"Erreur sur employé, en double ! \n" + e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
-        }
-
-
-        try {
-            listing.ajouterEmploye(employ2);
-        } catch (ExceptionEmployeDejaEmploye e) {
-            JOptionPane.showMessageDialog(null,"Erreur sur employé, en double ! \n" + e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
-        }
+        RegistreFrais2 listingFrais = new RegistreFrais2();
 
 
 
 
-        try {
-            listing.ajouterEmploye(employ3);
-        } catch (ExceptionEmployeDejaEmploye e) {
-            JOptionPane.showMessageDialog(null,"Erreur sur employé, en double ! \n" + e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
-        }
-
-
-        try {
-            listing.ajouterEmploye(employ4);
-        } catch (ExceptionEmployeDejaEmploye e) {
-            JOptionPane.showMessageDialog(null,"Erreur sur employé, en double ! \n" + e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
-        }
-
-        
-
-        
-        
 
 
 
-        
-        
-        
 
 
 
-        
-        
-        
-        
-        
+
 
 
 
@@ -98,23 +46,13 @@ public class Main {
         ManipFichier.lecture("src/data/dataIn.txt", listing);//----------------------cela fonctionne a date si tu as le fichier dans ton ordinateur
         //-----------------------------------------------------------------------------il va falloir que je cherche pour faire passe un chemin relatif
 
-        listing.listerEmployes();
 
 
-        //----------------Test des RemboDispo Hebergement/Restaurant/Transport-------------------
 
-        Employe empJunior = new Employe("Pou", "Max", "junior",0,0,0);
-//
-        Hebergement hebergement1 = new Hebergement(empJunior,"Hebergement",1000,LocalDate.of(2000,1,25));
-        LocalDate date2;
+
 
 
         //Creer listing Frais
-        RegistreFrais2 listingFrais = new RegistreFrais2();
-
-        // Creation de frais et test de rembo dispo
-        hebergement1.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empJunior,listingFrais,hebergement1));
-        Transport transport = new Transport(empJunior,"hebergement",1000,LocalDate.now());
 
 
 
@@ -122,18 +60,7 @@ public class Main {
 
 
 
-//       //  ajouter facture
-        try {
-            listingFrais.ajouterFrais2(transport);
-        } catch (ExceptionFraisExisteDeja e) {
-            JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
-        }
 
-        try {
-            listingFrais.ajouterFrais2(transport);
-        } catch (ExceptionFraisExisteDeja e) {
-            JOptionPane.showMessageDialog(null,"Erreur! Frais en double\n","Erreur Ajout Frais",JOptionPane.ERROR_MESSAGE);
-        }
 
 
 

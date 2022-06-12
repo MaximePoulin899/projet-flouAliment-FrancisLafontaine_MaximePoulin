@@ -5,12 +5,14 @@ import java.time.LocalDate;
 public class Hebergement extends Frais {
 
 
+
     public Hebergement() {
     }
 
     public Hebergement(Employe employe, String typeFrais, double prixFacture, LocalDate date) {
         super(employe, typeFrais, prixFacture, date);
     }
+
 
     @Override
     public Employe getEmploye() {
