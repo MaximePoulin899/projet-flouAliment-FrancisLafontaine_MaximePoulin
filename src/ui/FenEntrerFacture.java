@@ -465,7 +465,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
 
     private void creerFraisTransport(Employe emp, LocalDate date, double montant) {
         Transport transport = new Transport(emp, " Transport", montant, date);
-        transport.setRemboDispo((Utilitaire.calculRemboursementMaxTransport(emp)));
+        transport.setRemboDispo((Utilitaire.calculRemboursementMaxTransport(emp,listingFrais,transport)));
         try {
             listingFrais.ajouterFrais2(transport);
             clearChamps();

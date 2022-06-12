@@ -46,7 +46,7 @@ public class Utilitaire {
     public static double calculRemboursementMaxRestaurant(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
         double montantRembourse = 0;
         double montantUtilisePrealable = 0;
-        double remboDispoTotal = 0;
+        double remboDispoTotal;
 
         switch (emp.getType()) {
             case "junior":
@@ -78,21 +78,39 @@ public class Utilitaire {
     }
 
 
-    public static double calculRemboursementMaxTransport(Employe emp) {
-        double remboDispo = 0;
+    public static double calculRemboursementMaxTransport(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
+        double montantRembourse = 0;
+        double montantUtilisePrealable = 0;
+        double remboDispoTotal;
 
         switch (emp.getType()) {
             case "junior":
-                remboDispo = 50;
+                remboDispoTotal = 50;
+
+                montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais, montantUtilisePrealable, emp);
+
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+
+
                 break;
             case "senior":
-                remboDispo = 80;
+                remboDispoTotal = 80;
+
+                montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais, montantUtilisePrealable, emp);
+
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+
                 break;
             case "super":
-                remboDispo = 150;
+                remboDispoTotal = 150;
+
+                montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais, montantUtilisePrealable, emp);
+
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+
                 break;
         }
-        return remboDispo;
+        return montantRembourse;
     }
 
     public static double calculRemboursementMaxTransportAvion(Employe emp) {
@@ -145,7 +163,8 @@ public class Utilitaire {
      * @param remboDispoTotal
      * @param emp
      * @param frais
-     * @return Calcule le montant à remboursé selon le type d'employé.
+     * @return Calcule le montant à remboursé selon le type d'employé et renvoie un message pour avertir le comptable du montant à rembourser
+     * // Je sais, cette fonction fait plus qu'une chose
      */
     private static double caculerMontantRembourse(double montantUtilisePrealable, double remboDispoTotal, Employe emp, Frais frais) {
         double montantRembourse = 0;
@@ -160,7 +179,11 @@ public class Utilitaire {
             return montantRembourse = frais.getPrixFacture();
     }
 
-
+    /**
+     * Afficher message d'avertissement
+     * @param emp
+     * @param montantRembourse
+     */
     private static void alertDepassementRemboursement(Employe emp, double montantRembourse) {
         JOptionPane.showMessageDialog(null, "Remboursement disponible dépassé.\n Voici le montant auquel " + emp.getPrenom() + " " + emp.getNom() + " aura droit: " + montantRembourse,
                 "Saisie de valeurs",
