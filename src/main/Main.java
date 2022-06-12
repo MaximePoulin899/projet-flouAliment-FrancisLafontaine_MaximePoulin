@@ -78,7 +78,16 @@ public class Main {
 
 
 
+        
+        
+        
 
+
+
+        
+        
+        
+        
         
 
 
@@ -109,12 +118,6 @@ public class Main {
 
 
 
-
-//        System.out.println(hebergement1);
-//        System.out.println(hebergement2);
-//        System.out.println(hebergement3);
-//        System.out.println(transport);
-//        System.out.println(restauration);
 
 
 

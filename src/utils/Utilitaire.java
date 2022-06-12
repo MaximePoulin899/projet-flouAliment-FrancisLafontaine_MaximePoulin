@@ -12,30 +12,30 @@ public class Utilitaire {
     public static double calculRemboursementMaxHebergement(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
         double montantRembourse = 0;
         double montantUtilisePrealable = 0;
-        double remboDispoTotal = 0;
+        double remboDispoTotalHergement = 0;
 
         switch (emp.getType()) {
             case "junior":
-                remboDispoTotal = 1200;
+                remboDispoTotalHergement = 1200;
 
                 montantUtilisePrealable = calculerMontantUtiliseMois(listingFrais, frais, montantUtilisePrealable, emp);
 
-                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotalHergement, emp, frais);
 
                 break;
             case "senior":
-                remboDispoTotal = 1600;
+                remboDispoTotalHergement = 1600;
 
                 montantUtilisePrealable = calculerMontantUtiliseMois(listingFrais, frais, montantUtilisePrealable, emp);
 
-                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotalHergement, emp, frais);
                 break;
             case "super":
-                remboDispoTotal = 3000;
+                remboDispoTotalHergement = 3000;
 
                 montantUtilisePrealable = calculerMontantUtiliseMois(listingFrais, frais, montantUtilisePrealable, emp);
 
-                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotalHergement, emp, frais);
 
                 break;
         }
@@ -46,32 +46,32 @@ public class Utilitaire {
     public static double calculRemboursementMaxRestaurant(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
         double montantRembourse = 0;
         double montantUtilisePrealable = 0;
-        double remboDispoTotal;
+        double remboDispoTotalRestaurant;
 
         switch (emp.getType()) {
             case "junior":
-                remboDispoTotal = 25;
+                remboDispoTotalRestaurant = 25;
 
                 montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais, montantUtilisePrealable, emp);
 
-                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotalRestaurant, emp, frais);
 
                 break;
             case "senior":
-                remboDispoTotal = 40;
+                remboDispoTotalRestaurant = 40;
 
                 montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais, montantUtilisePrealable, emp);
 
-                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotalRestaurant, emp, frais);
                 break;
 
 
             case "super":
-                remboDispoTotal = 60;
+                remboDispoTotalRestaurant = 60;
 
                 montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais, montantUtilisePrealable, emp);
 
-                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotalRestaurant, emp, frais);
                 break;
         }
         return montantRembourse;
@@ -81,32 +81,32 @@ public class Utilitaire {
     public static double calculRemboursementMaxTransport(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
         double montantRembourse = 0;
         double montantUtilisePrealable = 0;
-        double remboDispoTotal;
+        double remboDispoTotalTransport;
 
         switch (emp.getType()) {
             case "junior":
-                remboDispoTotal = 50;
+                remboDispoTotalTransport = 50;
 
                 montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais, montantUtilisePrealable, emp);
 
-                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotalTransport, emp, frais);
 
 
                 break;
             case "senior":
-                remboDispoTotal = 80;
+                remboDispoTotalTransport = 80;
 
                 montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais, montantUtilisePrealable, emp);
 
-                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotalTransport, emp, frais);
 
                 break;
             case "super":
-                remboDispoTotal = 150;
+                remboDispoTotalTransport = 150;
 
                 montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais, montantUtilisePrealable, emp);
 
-                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotal, emp, frais);
+                montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotalTransport, emp, frais);
 
                 break;
         }
@@ -121,7 +121,6 @@ public class Utilitaire {
 
 
     /**
-     *
      * @param listingFrais
      * @param frais
      * @param montantUtilisePrealable
@@ -131,7 +130,8 @@ public class Utilitaire {
     private static double calculerMontantUtiliseMois(RegistreFrais2 listingFrais, Frais frais, double montantUtilisePrealable, Employe emp) {
         for (Frais tmp : listingFrais.getRegistreFrais2()) {
             if (frais.getDate().getYear() == tmp.getDate().getYear()
-                    && frais.getDate().getMonth() == tmp.getDate().getMonth()) {
+                    && frais.getDate().getMonth() == tmp.getDate().getMonth()
+                    && frais.getTypeFrais().equalsIgnoreCase(tmp.getTypeFrais())) {
                 montantUtilisePrealable += tmp.getPrixFacture();
             }
         }
@@ -139,7 +139,6 @@ public class Utilitaire {
     }
 
     /**
-     *
      * @param listingFrais
      * @param frais
      * @param montantUtilisePrealable
@@ -150,7 +149,8 @@ public class Utilitaire {
         for (Frais tmp : listingFrais.getRegistreFrais2()) {
             if (frais.getDate().getYear() == tmp.getDate().getYear()
                     && frais.getDate().getMonth() == tmp.getDate().getMonth()
-                    &&frais.getDate().getDayOfMonth() == tmp.getDate().getDayOfMonth()) {
+                    && frais.getDate().getDayOfMonth() == tmp.getDate().getDayOfMonth()
+                    && frais.getTypeFrais().equalsIgnoreCase(tmp.getTypeFrais())) {
                 montantUtilisePrealable += tmp.getPrixFacture();
             }
         }
@@ -158,7 +158,6 @@ public class Utilitaire {
     }
 
     /**
-     *
      * @param montantUtilisePrealable
      * @param remboDispoTotal
      * @param emp
@@ -170,17 +169,18 @@ public class Utilitaire {
         double montantRembourse = 0;
         if (montantUtilisePrealable > remboDispoTotal) {
             alertDepassementRemboursement(emp, montantRembourse);
-            return montantRembourse = 0;
+            return 0;
         } else if ((montantUtilisePrealable + frais.getPrixFacture()) > remboDispoTotal) {
             montantRembourse = remboDispoTotal - montantUtilisePrealable;
             alertDepassementRemboursement(emp, montantRembourse);
             return montantRembourse;
         } else
-            return montantRembourse = frais.getPrixFacture();
+            return frais.getPrixFacture();
     }
 
     /**
      * Afficher message d'avertissement
+     *
      * @param emp
      * @param montantRembourse
      */
