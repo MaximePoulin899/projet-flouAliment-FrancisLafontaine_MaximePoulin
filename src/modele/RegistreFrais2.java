@@ -29,6 +29,7 @@ public class RegistreFrais2 {
             JOptionPane.showMessageDialog(null, "Ajout du frais de votre employé avec succès ", "Edition", JOptionPane.INFORMATION_MESSAGE);
             System.out.println("good Frais");
             this.registreFrais2.add(frais);
+            System.out.println(frais);
         }
     }
     public boolean validerDoublonFrais(Frais frais) {

@@ -4,7 +4,6 @@ import modele.*;
 import modele.Frais;
 import modele.RegistreFrais2;
 import utils.ExceptionFraisExisteDeja;
-import utils.Utilitaire;
 
 import javax.swing.*;
 import java.io.*;
@@ -29,8 +28,10 @@ public class ManipFichierFrais {
             while ((ligne = br.readLine()) != null) {
                 //Transformer une ligne en objet de type frais
 
-                Frais frais = parserLigne(ligne);
+                Hebergement frais = parserLigne(ligne);
                 //ajouter dans le registre
+
+               // frais.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(new Employe("Pou", "Max", "super"), listingFrais, frais));
 
                 try {
                     listingFrais.ajouterFrais2(frais);
@@ -39,6 +40,7 @@ public class ManipFichierFrais {
                     JOptionPane.showMessageDialog(null, e.getFrais().toString(), "Erreur AJout", JOptionPane.ERROR_MESSAGE);
                 }
             }
+
             br.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -60,77 +62,20 @@ public class ManipFichierFrais {
         double prixFacture = Double.parseDouble(tokens[4]);
         LocalDate date = LocalDate.parse(tokens[5], DateTimeFormatter.ISO_DATE);
 
-        System.out.println(tokens[5]);
-        System.out.println(date);
 
-
-        System.out.println(nom+";"+prenom+";"+type+";"+typeFrais+";"+prixFacture+";"+date);
 
         Employe emp = new Employe();
         emp.setNom(nom);
         emp.setPrenom(prenom);
         emp.setType(type);
 
-//        if (typeFrais == "Hebergement") {
-//            new Hebergement(emp, typeFrais, prixFacture, date);
-//        }else if(typeFrais == "transport"){
-//            return new Transport(emp, typeFrais, prixFacture, date);
-//        }else if (typeFrais == "restauration"){
-//            return new Restauration(emp, typeFrais, prixFacture, date);
-//        }
 
 
-
-Hebergement test = new Hebergement(emp,typeFrais,prixFacture,date);
+        Hebergement test = new Hebergement(emp, typeFrais, prixFacture, date);
 
 
         return test;
     }
-
-    public static String lecture2(String fichier) {
-        File file = new File(fichier);
-
-        FileReader fr = null;
-        BufferedReader br=null;
-        StringBuilder sortie = new StringBuilder();//sortie de lecture
-        try {
-            fr = new FileReader(file);
-            br = new BufferedReader(fr);
-            //lecture
-            String c;
-            while ((c = br.readLine()) != null) {
-
-
-                sortie.append(c);
-
-                System.out.println(c);
-
-                sortie.append("\n");
-            }
-            br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return sortie.toString();
-    }
-
-    public static void ecriture2(String fichier, String chaine) {
-        File file = new File(fichier);
-        FileWriter fw = null;
-        BufferedWriter bw = null;
-        try {
-            fw = new FileWriter(file);
-            bw = new BufferedWriter(fw);
-            bw.write(chaine);
-            bw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 
 
     public static void ecriture(String fichier, RegistreFrais2 listingFrais) {
@@ -158,36 +103,4 @@ Hebergement test = new Hebergement(emp,typeFrais,prixFacture,date);
         return frais.getEmploye().getNom() + ";" + frais.getEmploye().getPrenom() + ";" + frais.getEmploye().getType() + ";" + frais.getTypeFrais() + ";" + frais.getPrixFacture() + ";" + frais.getRemboDispo() + ";" + frais.getDate() + "\n";
     }
 
-//    public static void lecture(String fichier, RegistreFrais2 listingFrais) {
-//
-//        File file = new File(fichier);
-//
-//        FileReader fr = null;
-//        BufferedReader br = null;
-//
-//        try {
-//            fr = new FileReader(file);
-//            br = new BufferedReader(fr);
-//            //lecture
-//            String ligne;
-//            while ((ligne = br.readLine()) != null) {
-//                //Transformer une ligne en objet de type frais
-//
-//                Frais frais = parserLigne(ligne);
-//                //ajouter dans le registre
-//                try {
-//                    listingFrais.ajouterFrais2(frais);
-//                } catch (ExceptionFraisExisteDeja e) {
-//                    JOptionPane.showMessageDialog(null, e.getFrais().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
-//                }
-//
-//            }
-//            br.close();
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
 }

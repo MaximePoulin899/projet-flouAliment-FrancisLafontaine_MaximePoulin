@@ -3,15 +3,27 @@ package modele;
 import javax.swing.*;
 import java.util.Objects;
 
+/**
+ * Classe Employe
+ */
 public class Employe {
     private String nom;
     private String prenom;
     private String type;
 
-
+    /**
+     * constructeur par default
+     */
     public Employe() {
     }
 
+    /**
+     * constructeur surchargé
+     *
+     * @param nom
+     * @param prenom
+     * @param type
+     */
     public Employe(String nom, String prenom, String type) {
         this.nom = nom;
         this.prenom = prenom;
@@ -44,7 +56,11 @@ public class Employe {
     }
 
 
-
+    /**
+     * le equals pour employe
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -53,11 +69,19 @@ public class Employe {
         return Objects.equals(getNom().toUpperCase(), employe.getNom().toUpperCase()) && Objects.equals(getPrenom().toUpperCase(), employe.getPrenom().toUpperCase()) && Objects.equals(getType().toUpperCase(), employe.getType().toUpperCase());
     }
 
+    /**
+     * le hascodeEmploye
+     * @return
+     */
     @Override
     public int hashCode() {
         return Objects.hash(getNom(), getPrenom(), getType());
     }
 
+    /**
+     * Name: Tostring
+     * @return
+     */
     @Override
     public String toString() {
         return "Employe{" +

@@ -333,6 +333,11 @@ public class FenAjouterEmp extends javax.swing.JFrame {
             chkSuper.setEnabled(false);
 
         }
+        if (!chkJunior.isSelected() && !chkSenior.isSelected() && !chkSuper.isSelected()){
+            chkJunior.setEnabled(true);
+            chkSenior.setEnabled(true);
+            chkSuper.setEnabled(true);
+        }
     }//GEN-LAST:event_chkJuniorActionPerformed
 
     private void chkSuperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSuperActionPerformed
@@ -340,12 +345,22 @@ public class FenAjouterEmp extends javax.swing.JFrame {
             chkJunior.setEnabled(false);
             chkSenior.setEnabled(false);
         }
+        if (!chkJunior.isSelected() && !chkSenior.isSelected() && !chkSuper.isSelected()){
+            chkJunior.setEnabled(true);
+            chkSenior.setEnabled(true);
+            chkSuper.setEnabled(true);
+        }
     }//GEN-LAST:event_chkSuperActionPerformed
 
     private void chkSeniorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSeniorActionPerformed
         if (chkSenior.isSelected()) {
             chkJunior.setEnabled(false);
             chkSuper.setEnabled(false);
+        }
+        if (!chkJunior.isSelected() && !chkSenior.isSelected() && !chkSuper.isSelected()){
+            chkJunior.setEnabled(true);
+            chkSenior.setEnabled(true);
+            chkSuper.setEnabled(true);
         }
     }//GEN-LAST:event_chkSeniorActionPerformed
 

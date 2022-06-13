@@ -26,41 +26,33 @@ public class Main {
         RegistreFrais2 listingFrais = new RegistreFrais2();
 
         //---------------------------------------------------------------Entrer des employés
-        ManipFichier.lecture("src/data/dataIn.txt", listing);
+       // ManipFichier.lecture("src/data/dataIn.txt", listing);
 //        ManipFichierFrais.lecture("src/data/dataFraisIn", listingFrais);
 
 
-        Employe empJunior = new Employe("Pou", "Max", "junior");
+//        Employe empJunior = new Employe("Pou", "Max", "junior");
 
 
 
-        Hebergement hebergement1 = new Hebergement(empJunior, "Hebergement", 1000, LocalDate.of(2022, 1, 01));
-        hebergement1.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empJunior, listingFrais, hebergement1));
+ //       Hebergement hebergement1 = new Hebergement(empJunior, "Hebergement", 1000, LocalDate.of(2022, 1, 01));
+  //      hebergement1.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(empJunior, listingFrais, hebergement1));
 
 
-        Transport transport = new Transport(empJunior, "Transport", 200, LocalDate.now());
-        transport.setRemboDispo(Utilitaire.calculRemboursementMaxTransport(empJunior, listingFrais, transport));
+ //       Transport transport = new Transport(empJunior, "Transport", 200, LocalDate.now());
+ //       transport.setRemboDispo(Utilitaire.calculRemboursementMaxTransport(empJunior, listingFrais, transport));
 
-        try {
-            listingFrais.ajouterFrais2(hebergement1);
-        } catch (ExceptionFraisExisteDeja e) {
-            JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
-        }
+  //      try {
+  //          listingFrais.ajouterFrais2(hebergement1);
+  //      } catch (ExceptionFraisExisteDeja e) {
+   //         JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
+  //      }
 
-        try {
-            listingFrais.ajouterFrais2(transport);
-        } catch (ExceptionFraisExisteDeja e) {
-            JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
-        }
+  //      try {
+   //         listingFrais.ajouterFrais2(transport);
+   //     } catch (ExceptionFraisExisteDeja e) {
+  //          JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
+   //     }
 
-
-//        String resultat = ManipFichierFrais.lecture2("src/data/dataTestIn.txt");
-//
-//
-//        System.out.println(resultat);
-//
-//
-//        ManipFichierFrais.ecriture2("src/data/dataTestOut.txt", resultat);
 
 
 

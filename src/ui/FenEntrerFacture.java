@@ -365,13 +365,11 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             jCheckPlaneRide.setEnabled(false);
             jCheckRestaurant.setEnabled(false);
 
-//            J'essayais de trouver une manière que si tu décoches la case, les autres cases deviennent disponibles.
-//
-            if (!jCheckTransport.isSelected()){
-                jCheckHebergement.setEnabled(true);
-                jCheckPlaneRide.setEnabled(true);
-                jCheckRestaurant.setEnabled(true);
-            }
+        }
+        if (!jCheckTransport.isSelected() && !jCheckHebergement.isSelected() && !jCheckRestaurant.isSelected()){
+            jCheckHebergement.setEnabled(true);
+            jCheckTransport.setEnabled(true);
+            jCheckRestaurant.setEnabled(true);
         }
 
     }//GEN-LAST:event_jCheckTransportActionPerformed
@@ -383,6 +381,12 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             jCheckTransport.setEnabled(false);
             jCheckRestaurant.setEnabled(false);
         }
+        if ( !jCheckPlaneRide.isSelected()){
+            jCheckHebergement.setEnabled(true);
+            jCheckTransport.setEnabled(true);
+            jCheckRestaurant.setEnabled(true);
+            jCheckPlaneRide.setEnabled(true);
+        }
 
     }//GEN-LAST:event_jCheckPlaneRideActionPerformed
 
@@ -392,6 +396,11 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             jCheckRestaurant.setEnabled(false);
             jCheckTransport.setEnabled(false);
             jCheckPlaneRide.setEnabled(false);
+        }
+        if (!jCheckTransport.isSelected() && !jCheckHebergement.isSelected() && !jCheckRestaurant.isSelected()){
+            jCheckHebergement.setEnabled(true);
+            jCheckTransport.setEnabled(true);
+            jCheckRestaurant.setEnabled(true);
         }
     }//GEN-LAST:event_jCheckHebergementActionPerformed
 
@@ -403,6 +412,11 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             jCheckPlaneRide.setEnabled(false);
 
         }
+        if (!jCheckTransport.isSelected() && !jCheckHebergement.isSelected() && !jCheckRestaurant.isSelected()){
+            jCheckHebergement.setEnabled(true);
+            jCheckTransport.setEnabled(true);
+            jCheckRestaurant.setEnabled(true);
+        }
 
     }//GEN-LAST:event_jCheckRestaurantActionPerformed
 
@@ -413,6 +427,11 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             jCheckSuper.setEnabled(false);
             jCheckPlaneRide.setEnabled(false);
         }
+        if (!jCheckJunior.isSelected() && !jCheckSuper.isSelected() && !jCheckSenior.isSelected()){
+            jCheckSenior.setEnabled(true);
+            jCheckJunior.setEnabled(true);
+            jCheckSuper.setEnabled(true);
+        }
     }//GEN-LAST:event_jCheckJuniorActionPerformed
 
     private void jCheckSeniorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSeniorActionPerformed
@@ -422,6 +441,11 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             jCheckSuper.setEnabled(false);
             jCheckPlaneRide.setEnabled(false);
         }
+        if (!jCheckJunior.isSelected() && !jCheckSuper.isSelected() && !jCheckSenior.isSelected()){
+            jCheckSenior.setEnabled(true);
+            jCheckJunior.setEnabled(true);
+            jCheckSuper.setEnabled(true);
+        }
     }//GEN-LAST:event_jCheckSeniorActionPerformed
 
     private void jCheckSuperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSuperActionPerformed
@@ -430,6 +454,11 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             jCheckPlaneRide.setEnabled(true);
             jCheckJunior.setEnabled(false);
             jCheckSenior.setEnabled(false);
+        }
+        if (!jCheckJunior.isSelected() && !jCheckSuper.isSelected() && !jCheckSenior.isSelected()){
+            jCheckSenior.setEnabled(true);
+            jCheckJunior.setEnabled(true);
+            jCheckSuper.setEnabled(true);
         }
     }//GEN-LAST:event_jCheckSuperActionPerformed
 
