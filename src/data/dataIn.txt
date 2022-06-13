@@ -1,2 +1,2 @@
-Pou Max junior
-eau Frk super
+Pou;Max;junior
+eau;Frk;super

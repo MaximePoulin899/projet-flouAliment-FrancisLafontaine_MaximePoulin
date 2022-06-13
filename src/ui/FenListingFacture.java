@@ -6,6 +6,8 @@ package ui;
 
 import modele.Frais;
 import modele.RegistreFrais2;
+import oi.ManipFichier;
+import oi.ManipFichierFrais;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -148,6 +150,7 @@ public class FenListingFacture extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        ManipFichierFrais.ecriture("src/data/DataFraisOut.txt", listingFrais);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -12,7 +12,7 @@ public class Employe {
     public Employe() {
     }
 
-    public Employe(String nom, String prenom, String type, double montantUtiliserTranportJour, double montantUtiliserHebergementMois, double montantUtiliserRestaurationJour) {
+    public Employe(String nom, String prenom, String type) {
         this.nom = nom;
         this.prenom = prenom;
         this.type = type;
@@ -64,9 +64,6 @@ public class Employe {
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", type='" + type + '\'' +
-//                ", montantUtiliserTranportJour=" + montantUtiliserTranportJour +
-//                ", montantUtiliserHebergementMois=" + montantUtiliserHebergementMois +
-//                ", montantUtiliserRestaurationJour=" + montantUtiliserRestaurationJour +
                 '}';
     }
 }

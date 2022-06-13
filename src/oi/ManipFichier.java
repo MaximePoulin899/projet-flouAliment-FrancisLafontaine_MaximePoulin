@@ -21,9 +21,9 @@ public class ManipFichier {
             //lecture
             String ligne;
             while ((ligne = br.readLine()) != null) {
-                //Transformer une ligne en objet de type article
+                //Transformer une ligne en objet de type employe
                 Employe employe = parserLigne(ligne);
-                //ajouter dans le registre ArrayList
+                //ajouter dans le registre
                 try {
                     listing.ajouterEmploye(employe);
                 } catch (ExceptionEmployeDejaEmploye e) {
@@ -38,18 +38,17 @@ public class ManipFichier {
         }
     }
 
+
+
     private static Employe parserLigne(String ligne) {
-        String[] tokens =  ligne.split(" ");
+        String[] tokens =  ligne.split(";");
         String nom = (tokens[0]);
         String prenom = (tokens[1]);
         String type = (tokens[2]);
-        double montantTransport = Double.parseDouble((tokens[3]));
-        double montantHebergement = Double.parseDouble((tokens[4]));
-        double montantRestaurant = Double.parseDouble((tokens[5]));
 
 
 
-        return new Employe(tokens[0], prenom, type,montantTransport,montantHebergement,montantRestaurant);
+        return new Employe(nom, prenom, type);
     }
 
     public static void ecriture(String fichier, RegistreEmploye listing) {
