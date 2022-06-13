@@ -53,7 +53,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         jCheckPlaneRide = new javax.swing.JCheckBox();
         txtDate = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jFormatDate = new javax.swing.JFormattedTextField();
+        txtDateFormat = new javax.swing.JFormattedTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -129,16 +129,16 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         jLabel9.setText("Entrer la date dans ce format: YYYY-MM-DD");
 
         try {
-            jFormatDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
+            txtDateFormat.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormatDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jFormatDate.setText("    /       /  ");
-        jFormatDate.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
-        jFormatDate.addActionListener(new java.awt.event.ActionListener() {
+        txtDateFormat.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDateFormat.setText("    /     /  ");
+        txtDateFormat.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        txtDateFormat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormatDateActionPerformed(evt);
+                txtDateFormatActionPerformed(evt);
             }
         });
 
@@ -167,7 +167,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jFormatDate, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDateFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -187,7 +187,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormatDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDateFormat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
@@ -459,7 +459,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
 
         //Valider que la date est dans le passé
 
-        String date2 = jFormatDate.getText();//------------------------------sa récupère la date direct en String
+        String date2 = txtDateFormat.getText();//------------------------------sa récupère la date direct en String
         System.out.println(date2);//--------------------------il faudrais metre date en string
 
 
@@ -582,10 +582,10 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDateActionPerformed
 
-    private void jFormatDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormatDateActionPerformed
+    private void txtDateFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateFormatActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jFormatDateActionPerformed
+    }//GEN-LAST:event_txtDateFormatActionPerformed
 
 
     private Employe trouverEmploye() {
@@ -660,6 +660,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
                     "Saisie de valeurs",
                     JOptionPane.ERROR_MESSAGE);
         }
+
 
         return flag;
     }
@@ -741,7 +742,6 @@ public class FenEntrerFacture extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckSenior;
     private javax.swing.JCheckBox jCheckSuper;
     private javax.swing.JCheckBox jCheckTransport;
-    private javax.swing.JFormattedTextField jFormatDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -756,6 +756,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JLabel lblTitre;
     private javax.swing.JTextField txtDate;
+    private javax.swing.JFormattedTextField txtDateFormat;
     private javax.swing.JTextField txtMontant;
     private javax.swing.JTextField txtNomEmp;
     private javax.swing.JTextField txtPrenomEmp;

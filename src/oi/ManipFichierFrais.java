@@ -4,6 +4,7 @@ import modele.*;
 import modele.Frais;
 import modele.RegistreFrais2;
 import utils.ExceptionFraisExisteDeja;
+import utils.Utilitaire;
 
 import javax.swing.*;
 import java.io.*;
@@ -11,6 +12,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class ManipFichierFrais {
+
+
     public static void lecture(String fichier, RegistreFrais2 listingFrais) {
 
         File file = new File(fichier);
@@ -28,6 +31,7 @@ public class ManipFichierFrais {
 
                 Frais frais = parserLigne(ligne);
                 //ajouter dans le registre
+
                 try {
                     listingFrais.ajouterFrais2(frais);
 
@@ -75,8 +79,59 @@ public class ManipFichierFrais {
 //            return new Restauration(emp, typeFrais, prixFacture, date);
 //        }
 
-        return new Hebergement(emp, typeFrais, prixFacture,date);
+
+
+Hebergement test = new Hebergement(emp,typeFrais,prixFacture,date);
+
+
+        return test;
     }
+
+    public static String lecture2(String fichier) {
+        File file = new File(fichier);
+
+        FileReader fr = null;
+        BufferedReader br=null;
+        StringBuilder sortie = new StringBuilder();//sortie de lecture
+        try {
+            fr = new FileReader(file);
+            br = new BufferedReader(fr);
+            //lecture
+            String c;
+            while ((c = br.readLine()) != null) {
+
+
+                sortie.append(c);
+
+                System.out.println(c);
+
+                sortie.append("\n");
+            }
+            br.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return sortie.toString();
+    }
+
+    public static void ecriture2(String fichier, String chaine) {
+        File file = new File(fichier);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        try {
+            fw = new FileWriter(file);
+            bw = new BufferedWriter(fw);
+            bw.write(chaine);
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     public static void ecriture(String fichier, RegistreFrais2 listingFrais) {
         File file = new File(fichier);
