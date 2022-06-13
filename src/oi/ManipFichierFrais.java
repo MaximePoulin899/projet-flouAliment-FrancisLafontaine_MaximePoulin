@@ -8,6 +8,7 @@ import utils.ExceptionFraisExisteDeja;
 import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class ManipFichierFrais {
     public static void lecture(String fichier, RegistreFrais2 listingFrais) {
@@ -25,10 +26,10 @@ public class ManipFichierFrais {
             while ((ligne = br.readLine()) != null) {
                 //Transformer une ligne en objet de type frais
 
-                Hebergement hebergement = parserLigne(ligne);
+                Frais frais = parserLigne(ligne);
                 //ajouter dans le registre
                 try {
-                    listingFrais.ajouterFrais2(hebergement);
+                    listingFrais.ajouterFrais2(frais);
 
                 } catch (ExceptionFraisExisteDeja e) {
                     JOptionPane.showMessageDialog(null, e.getFrais().toString(), "Erreur AJout", JOptionPane.ERROR_MESSAGE);
@@ -45,25 +46,28 @@ public class ManipFichierFrais {
     //Pou;Max;junior; Transport;100.0;50.0;2022-04-18
 //        Employe , String typeFrais, double prixFacture, LocalDate date)
     private static Hebergement parserLigne(String ligne) {
+
+
         String[] tokens = ligne.split(";");
-        String nom = (tokens[0]);
-        String prenom = (tokens[1]);
-        String type = (tokens[2]);
-        String typeFrais = (tokens[3]);
-        double prixFacture = Double.parseDouble((tokens[4]));
-        System.out.println(nom+prenom+type+typeFrais+prixFacture);
+        String nom = tokens[0];
+        String prenom = tokens[1];//-------------------------------on dirait sa bloque ici------- Index 1 out of bounds for length 1
+        String type = tokens[2];
+        String typeFrais = tokens[3];
+        double prixFacture = Double.parseDouble(tokens[4]);
+        LocalDate date = LocalDate.parse(tokens[5], DateTimeFormatter.ISO_DATE);
 
-        LocalDate date1 = parserTxtDate(tokens[5]);
-        System.out.println(tokens[4]);
-        System.out.println(date1);
+        System.out.println(tokens[5]);
+        System.out.println(date);
 
-        LocalDate date = LocalDate.parse((tokens[5]));//-------------------bloquer ici
 
-//        System.out.println(nom+prenom+type+typeFrais+prixFacture+date);
+        System.out.println(nom+";"+prenom+";"+type+";"+typeFrais+";"+prixFacture+";"+date);
 
-        Employe emp = new Employe(nom, prenom, type);
+        Employe emp = new Employe();
+        emp.setNom(nom);
+        emp.setPrenom(prenom);
+        emp.setType(type);
 
-//        if (typeFrais == "hebergement") {
+//        if (typeFrais == "Hebergement") {
 //            new Hebergement(emp, typeFrais, prixFacture, date);
 //        }else if(typeFrais == "transport"){
 //            return new Transport(emp, typeFrais, prixFacture, date);
@@ -71,19 +75,7 @@ public class ManipFichierFrais {
 //            return new Restauration(emp, typeFrais, prixFacture, date);
 //        }
 
-
         return new Hebergement(emp, typeFrais, prixFacture,date);
-    }
-
-    private static LocalDate parserTxtDate(String text) {
-        String[] tokens = text.split("-");
-        int year = (Integer.parseInt(tokens[0]));
-        System.out.println(year);
-        int month = (Integer.parseInt(tokens[1]));//--------------- ici aussi sa bloque
-        int day = (Integer.parseInt(tokens[2]));
-
-        return LocalDate.of(year, month, day);
-
     }
 
     public static void ecriture(String fichier, RegistreFrais2 listingFrais) {

@@ -9,6 +9,7 @@ import utils.Utilitaire;
 
 import javax.swing.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 public class Main {
@@ -28,7 +29,7 @@ public class Main {
 
         //---------------------------------------------------------------Entrer des employés
         ManipFichier.lecture("src/data/dataIn.txt", listing);
-//        ManipFichierFrais.lecture("src/data/dataFraisIn", listingFrais);
+        ManipFichierFrais.lecture("src/data/dataFraisIn", listingFrais);
 
 
 
