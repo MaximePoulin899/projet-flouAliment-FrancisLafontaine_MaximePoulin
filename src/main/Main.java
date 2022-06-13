@@ -29,7 +29,7 @@ public class Main {
 
         //---------------------------------------------------------------Entrer des employés
         ManipFichier.lecture("src/data/dataIn.txt", listing);
-        ManipFichierFrais.lecture("src/data/dataFraisIn", listingFrais);
+//        ManipFichierFrais.lecture("src/data/dataFraisIn", listingFrais);
 
 
 
