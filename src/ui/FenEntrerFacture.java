@@ -347,7 +347,6 @@ public class FenEntrerFacture extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-
     private void jCheckTransportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckTransportActionPerformed
         // TODO add your handling code here:
 
@@ -528,52 +527,48 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         //--------------------------il faudrais metre date en string
 
 
+        //Vérification de la date
+        boolean checkDate = false;
+        LocalDate date = null;
         try {
-
-            //Vérification de la date
-            boolean checkDate = false;
-            LocalDate date = null;
-            try {
-                date = LocalDate.parse(txtDateFormat.getText());
-                checkDate = true;
-            } catch (DateTimeParseException e) {
-                JOptionPane.showMessageDialog(null, "Erreur!Veuiller donner une date valide!\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
-                txtDateFormat.setText("");
-            }
-            boolean dateValide = validerDate(date);
-
-            //Vérification du Montant
-            double montant = 0;
-            boolean checkMontant = false;
-            try {
-                montant = Double.parseDouble(txtMontant.getText());
-                checkMontant = true;
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Erreur! Frais se doit d'être un nombre\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
-                txtMontant.setText("");
-            }
-            boolean montantValide = validerMontantPlusGrdZero(montant);
-
-
-            //Création du Frais en fonction des choix
-            if (statut && EmployeExiste && dateValide && montantValide && checkMontant && checkDate) {
-                //Creer un instance de l'employe afin de créer le Frais
-                Employe emp = trouverEmploye();
-
-
-                if (jCheckHebergement.isSelected()) {
-                    creerFraisHergement(emp, date, montant);
-                } else if (jCheckTransport.isSelected()) {
-                    creerFraisTransport(emp, date, montant);
-                } else if (jCheckRestaurant.isSelected()) {
-                    creerFraisRestaurant(emp, date, montant);
-                } else if (jCheckPlaneRide.isSelected()) {
-                    creerFraisTransportAvion(emp, date, montant);
-                }
-            }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Erreur! La date n'est pas sélectionné\n", "Erreur saisie", JOptionPane.ERROR_MESSAGE);
+            date = LocalDate.parse(txtDateFormat.getText());
+            checkDate = true;
+        } catch (DateTimeParseException e) {
+            JOptionPane.showMessageDialog(null, "Erreur!Veuiller donner une date valide!\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
+            txtDateFormat.setText("");
         }
+        boolean dateValide = validerDate(date);
+
+        //Vérification du Montant
+        double montant = 0;
+        boolean checkMontant = false;
+        try {
+            montant = Double.parseDouble(txtMontant.getText());
+            checkMontant = true;
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Erreur! Frais se doit d'être un nombre\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
+            txtMontant.setText("");
+        }
+        boolean montantValide = validerMontantPlusGrdZero(montant);
+
+
+        //Création du Frais en fonction des choix
+        if (statut && EmployeExiste && dateValide && montantValide && checkMontant && checkDate) {
+            //Creer un instance de l'employe afin de créer le Frais
+            Employe emp = trouverEmploye();
+
+
+            if (jCheckHebergement.isSelected()) {
+                creerFraisHergement(emp, date, montant);
+            } else if (jCheckTransport.isSelected()) {
+                creerFraisTransport(emp, date, montant);
+            } else if (jCheckRestaurant.isSelected()) {
+                creerFraisRestaurant(emp, date, montant);
+            } else if (jCheckPlaneRide.isSelected()) {
+                creerFraisTransportAvion(emp, date, montant);
+            }
+        }
+
     }//GEN-LAST:event_btnSoumettreActionPerformed
 
 

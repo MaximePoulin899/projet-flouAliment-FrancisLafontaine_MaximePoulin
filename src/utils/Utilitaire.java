@@ -8,7 +8,13 @@ import javax.swing.*;
 
 public class Utilitaire {
 
-
+    /**
+     *  Calcule le remboursement pour les frais d'hébergement en fonction de l'employé, son type, le mois
+     * @param emp
+     * @param listingFrais
+     * @param frais
+     * @return en double Le montant illigible au remboursement.
+     */
     public static double calculRemboursementMaxHebergement(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
         double montantRembourse = 0;
         double montantUtilisePrealable = 0;
@@ -42,7 +48,13 @@ public class Utilitaire {
         return montantRembourse;
     }
 
-
+    /**
+     *  Calcule le remboursement  pour les frais de restauration en fonction de l'employé, son type, le mois.
+     * @param emp
+     * @param listingFrais
+     * @param frais
+     * @return en double Le montant illigible au remboursement.
+     */
     public static double calculRemboursementMaxRestaurant(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
         double montantRembourse = 0;
         double montantUtilisePrealable = 0;
@@ -78,6 +90,13 @@ public class Utilitaire {
     }
 
 
+    /**
+     *  Calcule le remboursement  pour les frais de transport en fonction de l'employé, son type, le mois.
+     * @param emp
+     * @param listingFrais
+     * @param frais
+     * @return en double Le montant illigible au remboursement.
+     */
     public static double calculRemboursementMaxTransport(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
         double montantRembourse = 0;
         double montantUtilisePrealable = 0;
@@ -113,6 +132,13 @@ public class Utilitaire {
         return montantRembourse;
     }
 
+    /**
+     *
+     * @param emp
+     * @param listingFrais
+     * @param frais
+     * @return
+     */
     public static double calculRemboursementMaxTransportAvion(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
         double montantRembourse = 0;
         double montantUtilisePrealable = 0;
