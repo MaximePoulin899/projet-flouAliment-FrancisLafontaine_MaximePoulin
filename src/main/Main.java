@@ -24,6 +24,7 @@ public class Main {
 
         
 
+
         //---------------------------------------------------------------création registre employ
         RegistreEmploye listing = new RegistreEmploye();
         //---------------------------------------------------------------Creer listing Frais
@@ -57,6 +58,8 @@ public class Main {
         //</editor-fold>
 
         /* Create and display the form */
+
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FenMenu(listing, listingFrais).setVisible(true);

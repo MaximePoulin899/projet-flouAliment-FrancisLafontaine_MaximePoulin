@@ -10,6 +10,7 @@ import utils.Utilitaire;
 
 import javax.swing.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 /**
  * @author Maxime
@@ -454,7 +455,6 @@ public class FenEntrerFacture extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckJuniorActionPerformed
 
 
-
     private void jCheckSeniorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSeniorActionPerformed
         // TODO add your handling code here:
         if (jCheckSenior.isSelected()) {
@@ -525,27 +525,33 @@ public class FenEntrerFacture extends javax.swing.JFrame {
 
         try {
 
-            LocalDate date = LocalDate.parse(txtDateFormat.getText());
-
+            //Vérification de la date
+            boolean checkDate = false;
+            LocalDate date = null;
+            try {
+                date = LocalDate.parse(txtDateFormat.getText());
+                checkDate = true;
+            } catch (DateTimeParseException e) {
+                JOptionPane.showMessageDialog(null, "Erreur!Veuiller donner une date valide!\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
+                txtDateFormat.setText("");
+            }
             boolean dateValide = validerDate(date);
 
-
+            //Vérification du Montant
             double montant = 0;
-            boolean check = false;
-
+            boolean checkMontant = false;
             try {
                 montant = Double.parseDouble(txtMontant.getText());
-                check = true;
+                checkMontant = true;
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Erreur! Frais se doit d'être un nombre\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
-
+                txtMontant.setText("");
             }
-
-
             boolean montantValide = validerMontantPlusGrdZero(montant);
 
 
-            if (statut && EmployeExiste && dateValide && montantValide && check) {
+            //Création du Frais en fonction des choix
+            if (statut && EmployeExiste && dateValide && montantValide && checkMontant && checkDate) {
                 //Creer un instance de l'employe afin de créer le Frais
                 Employe emp = trouverEmploye();
 
