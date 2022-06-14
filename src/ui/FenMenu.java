@@ -232,7 +232,8 @@ public class FenMenu extends javax.swing.JFrame {
     private void btnEntrerFactureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrerFactureActionPerformed
         // TODO add your handling code here:--------------------------------------------------bouton entrer nouvelle Facture
         
-        FenEntrerFacture fenEntrerFacture = new FenEntrerFacture(listing, listingFrais);
+        FenEntrerFacture fenEntrerFacture = new FenEntrerFacture(listing, listingFrais,this);
+        this.setVisible(false);
         fenEntrerFacture.setVisible(true);
         
     }//GEN-LAST:event_btnEntrerFactureActionPerformed
@@ -240,7 +241,8 @@ public class FenMenu extends javax.swing.JFrame {
     private void btnAfficherListFraisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfficherListFraisActionPerformed
         // TODO add your handling code here:--------------------------------------------------bouton afficher Liste de frais 
         
-        FenListingFacture fenListingFacture = new FenListingFacture(listingFrais);
+        FenListingFacture fenListingFacture = new FenListingFacture(listingFrais, this);
+        this.setVisible(false);
         fenListingFacture.setVisible(true);        
     }//GEN-LAST:event_btnAfficherListFraisActionPerformed
 

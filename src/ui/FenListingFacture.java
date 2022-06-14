@@ -9,6 +9,7 @@ import modele.RegistreFrais2;
 import oi.ManipFichier;
 import oi.ManipFichierFrais;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Maxime
  */
 public class FenListingFacture extends javax.swing.JFrame {
+    JFrame fenMenu;
     private RegistreFrais2 listingFrais;
     /**
      * Creates new form FenListingFacture
@@ -131,8 +133,9 @@ public class FenListingFacture extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    public FenListingFacture(RegistreFrais2 listingFrais){
+    public FenListingFacture(RegistreFrais2 listingFrais, JFrame fenMenu){
         this();
+        this. fenMenu = fenMenu;
         this.listingFrais = listingFrais;
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
@@ -146,6 +149,7 @@ public class FenListingFacture extends javax.swing.JFrame {
     private void btnRetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetourActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        fenMenu.setVisible(true);
     }//GEN-LAST:event_btnRetourActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

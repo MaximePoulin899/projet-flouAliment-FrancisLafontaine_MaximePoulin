@@ -16,6 +16,7 @@ import java.time.format.DateTimeParseException;
  * @author Maxime
  */
 public class FenEntrerFacture extends javax.swing.JFrame {
+    JFrame fenMenu;
 
     private RegistreEmploye listing;
     private RegistreFrais2 listingFrais;
@@ -26,6 +27,16 @@ public class FenEntrerFacture extends javax.swing.JFrame {
     public FenEntrerFacture() {
         initComponents();
         jCheckPlaneRide.setEnabled(false);
+    }
+
+    public FenEntrerFacture(RegistreEmploye listing, RegistreFrais2 listingFrais, JFrame fenMenu) {
+        this();
+        this.fenMenu = fenMenu;
+        this.listing = listing;
+        this.listingFrais = listingFrais;
+
+        jCheckPlaneRide.setEnabled(false);
+
     }
 
     /**
@@ -335,14 +346,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public FenEntrerFacture(RegistreEmploye listing, RegistreFrais2 listingFrais) {
-        this();
-        this.listing = listing;
-        this.listingFrais = listingFrais;
 
-        jCheckPlaneRide.setEnabled(false);
-
-    }
 
     private void jCheckTransportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckTransportActionPerformed
         // TODO add your handling code here:
@@ -499,6 +503,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
     private void btnRetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetourActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        fenMenu.setVisible(true);
     }//GEN-LAST:event_btnRetourActionPerformed
 
     private void btnEffacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEffacerActionPerformed
