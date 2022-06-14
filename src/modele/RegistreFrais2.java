@@ -1,6 +1,6 @@
 package modele;
 
-import utils.ExceptionFraisExisteDeja;
+import utils.FraisExisteDejaException;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -21,10 +21,10 @@ public class RegistreFrais2 {
         this.registreFrais2 = registreFrais2;
     }
 
-    public void ajouterFrais2(Frais frais) throws ExceptionFraisExisteDeja {
+    public void ajouterFrais2(Frais frais) throws FraisExisteDejaException {
         if (validerDoublonFrais(frais)) {
             System.out.println("Erreur");
-            throw new ExceptionFraisExisteDeja("Un frais doublon trouvé", frais);
+            throw new FraisExisteDejaException("Un frais doublon trouvé", frais);
         } else {
             JOptionPane.showMessageDialog(null, "Ajout du frais de votre employé avec succès ", "Edition", JOptionPane.INFORMATION_MESSAGE);
             System.out.println("good Frais");

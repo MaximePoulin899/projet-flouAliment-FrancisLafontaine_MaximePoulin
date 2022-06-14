@@ -2,7 +2,7 @@ package oi;
 
 import modele.Employe;
 import modele.RegistreEmploye;
-import utils.ExceptionEmployeDejaEmploye;
+import utils.EmployeDejaEmployeException;
 
 import javax.swing.*;
 import java.io.*;
@@ -26,7 +26,7 @@ public class ManipFichier {
                 //ajouter dans le registre
                 try {
                     listing.ajouterEmploye(employe);
-                } catch (ExceptionEmployeDejaEmploye e) {
+                } catch (EmployeDejaEmployeException e) {
                     JOptionPane.showMessageDialog(null, e.getEmploye().toString(),"Erreur AJout",JOptionPane.ERROR_MESSAGE);
                 }
             }

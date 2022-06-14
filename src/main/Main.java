@@ -1,15 +1,7 @@
 package main;
 
 import modele.*;
-import oi.ManipFichier;
-import oi.ManipFichierFrais;
 import ui.FenMenu;
-import utils.ExceptionFraisExisteDeja;
-import utils.Utilitaire;
-
-import javax.swing.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 
 public class Main {

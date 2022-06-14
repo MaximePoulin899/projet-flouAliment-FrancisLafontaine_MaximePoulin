@@ -2,14 +2,14 @@ package utils;
 
 import modele.Frais;
 
-public class ExceptionFraisExisteDeja extends Exception{
+public class FraisExisteDejaException extends Exception{
     private Frais frais;
 
-    public ExceptionFraisExisteDeja(Frais frais) {
+    public FraisExisteDejaException(Frais frais) {
         this.frais = frais;
     }
 
-    public ExceptionFraisExisteDeja(String message, Frais frais) {
+    public FraisExisteDejaException(String message, Frais frais) {
         super(message);
         this.frais = frais;
     }

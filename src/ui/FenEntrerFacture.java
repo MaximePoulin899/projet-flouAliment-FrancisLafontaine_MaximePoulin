@@ -5,7 +5,7 @@
 package ui;
 
 import modele.*;
-import utils.ExceptionFraisExisteDeja;
+import utils.FraisExisteDejaException;
 import utils.Utilitaire;
 
 import javax.swing.*;
@@ -578,7 +578,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         try {
             listingFrais.ajouterFrais2(transportAvion);
             clearChamps();
-        } catch (ExceptionFraisExisteDeja e) {
+        } catch (FraisExisteDejaException e) {
             JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -589,7 +589,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         try {
             listingFrais.ajouterFrais2(restauration);
             clearChamps();
-        } catch (ExceptionFraisExisteDeja e) {
+        } catch (FraisExisteDejaException e) {
             JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -600,7 +600,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         try {
             listingFrais.ajouterFrais2(transport);
             clearChamps();
-        } catch (ExceptionFraisExisteDeja e) {
+        } catch (FraisExisteDejaException e) {
             JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
         }
 
@@ -614,7 +614,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             listingFrais.ajouterFrais2(hebergement);
 
             clearChamps();
-        } catch (ExceptionFraisExisteDeja e) {
+        } catch (FraisExisteDejaException e) {
             JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
         }
 

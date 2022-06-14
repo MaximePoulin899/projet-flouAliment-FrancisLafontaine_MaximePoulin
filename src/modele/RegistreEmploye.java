@@ -1,6 +1,6 @@
 package modele;
 
-import utils.ExceptionEmployeDejaEmploye;
+import utils.EmployeDejaEmployeException;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -21,11 +21,11 @@ public class RegistreEmploye {
         this.registre = registre;
     }
 
-    public void ajouterEmploye(Employe employe) throws ExceptionEmployeDejaEmploye {
+    public void ajouterEmploye(Employe employe) throws EmployeDejaEmployeException {
 
         if (validerEmp(employe)){//----------------------------il faut vérifier si il existe déja dans la liste
             System.out.println("Erreur");
-            throw new ExceptionEmployeDejaEmploye("Un employé doublon trouvé ", employe);
+            throw new EmployeDejaEmployeException("Un employé doublon trouvé ", employe);
         }else{
             JOptionPane.showMessageDialog(null, "Ajout d'un employé avec succès",
                     "Edition", JOptionPane.INFORMATION_MESSAGE);

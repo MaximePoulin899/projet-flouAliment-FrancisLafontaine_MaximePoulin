@@ -5,11 +5,10 @@
 package ui;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 
 import modele.Employe;
 import modele.RegistreEmploye;
-import utils.ExceptionEmployeDejaEmploye;
+import utils.EmployeDejaEmployeException;
 
 /**
  * @author lafon
@@ -311,7 +310,7 @@ public class FenAjouterEmp extends javax.swing.JFrame {
                 listing.ajouterEmploye(emp);
 
                 viderChampp();
-            } catch (ExceptionEmployeDejaEmploye e) {
+            } catch (EmployeDejaEmployeException e) {
                 JOptionPane.showMessageDialog(null, "Erreur sur employé, en double ! \n" + emp, "Erreur de saisie", JOptionPane.ERROR_MESSAGE);
             }
 

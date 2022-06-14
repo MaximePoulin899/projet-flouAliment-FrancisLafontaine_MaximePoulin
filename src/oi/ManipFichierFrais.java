@@ -3,7 +3,7 @@ package oi;
 import modele.*;
 import modele.Frais;
 import modele.RegistreFrais2;
-import utils.ExceptionFraisExisteDeja;
+import utils.FraisExisteDejaException;
 
 import javax.swing.*;
 import java.io.*;
@@ -36,7 +36,7 @@ public class ManipFichierFrais {
                 try {
                     listingFrais.ajouterFrais2(frais);
 
-                } catch (ExceptionFraisExisteDeja e) {
+                } catch (FraisExisteDejaException e) {
                     JOptionPane.showMessageDialog(null, e.getFrais().toString(), "Erreur AJout", JOptionPane.ERROR_MESSAGE);
                 }
             }
