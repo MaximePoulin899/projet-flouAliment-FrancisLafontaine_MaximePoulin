@@ -11,18 +11,11 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
 
-
-        
-
-
-        //---------------------------------------------------------------création registre employ
+        //---------------------------------------------------------------création registre employe
         RegistreEmploye listing = new RegistreEmploye();
         //---------------------------------------------------------------Creer listing Frais
         RegistreFrais listingFrais = new RegistreFrais();
-
-
 
 
 

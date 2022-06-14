@@ -1,6 +1,4 @@
 package modele;
-
-import javax.swing.*;
 import java.util.Objects;
 
 /**

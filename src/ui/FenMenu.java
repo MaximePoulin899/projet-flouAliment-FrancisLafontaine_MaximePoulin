@@ -8,20 +8,33 @@ import modele.RegistreEmploye;
 import modele.RegistreFrais;
 import oi.ManipFichier;
 
+import javax.swing.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 /**
- *
+ *name : FenMenu
+ * fonction : Sert a afficher le menu pour naviguer
  * @author lafon
  */
 public class FenMenu extends javax.swing.JFrame {
     RegistreEmploye listing;
     RegistreFrais listingFrais;
 
-    /**
+    /** name : constructeur par défault
+     * fonction : init
      * Creates new form FenMenu
      */
     public FenMenu() {
         initComponents();
     }
+
+    /**
+     * name: constructeur avec paramètre
+     *
+     * @param listing
+     * @param listingFrais
+     */
     public FenMenu(RegistreEmploye listing, RegistreFrais listingFrais) {
         this();
         this.listing = listing;
@@ -213,45 +226,58 @@ public class FenMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAfficherlistEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfficherlistEmpActionPerformed
-        // TODO add your handling code here:-------------------------------------------------bouton afficher list de commerciaux
-        
-        FenEmployes fenEmployes = new FenEmployes(listing);
+    /**
+     * name btnAfficherListEmp
+     * fonction : aller vers la fenetre pour afficher la liste d'employe
+     * @param evt
+     */
+    private void btnAfficherlistEmpActionPerformed(java.awt.event.ActionEvent evt) {
+        FenEmployes fenEmployes = new FenEmployes(listing, this);
+        this.setVisible(false);
         fenEmployes.setVisible(true);
-        
-        
-        
-    }//GEN-LAST:event_btnAfficherlistEmpActionPerformed
+    }
 
-    private void btnQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitterActionPerformed
-        // TODO add your handling code here:-------------------------------------------------bouton Quitter
+    /**
+     * name: btnQuitter
+     * fonction: fermer le programme
+     * @param evt
+     */
+    private void btnQuitterActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
-    }//GEN-LAST:event_btnQuitterActionPerformed
+    }
 
-    private void btnEntrerFactureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrerFactureActionPerformed
-        // TODO add your handling code here:--------------------------------------------------bouton entrer nouvelle Facture
-        
+    /**
+     * name: btnEntrer
+     * fonction : aller vers la fenetre pour entrer une facture
+     * @param evt
+     */
+    private void btnEntrerFactureActionPerformed(java.awt.event.ActionEvent evt) {
         FenEntrerFacture fenEntrerFacture = new FenEntrerFacture(listing, listingFrais,this);
         this.setVisible(false);
         fenEntrerFacture.setVisible(true);
-        
-    }//GEN-LAST:event_btnEntrerFactureActionPerformed
+    }
 
-    private void btnAfficherListFraisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfficherListFraisActionPerformed
-        // TODO add your handling code here:--------------------------------------------------bouton afficher Liste de frais 
-        
+    /**
+     * name: btnAfficherList
+     * fonction: afficher la fenetre pour afficher la liste
+     * @param evt
+     */
+    private void btnAfficherListFraisActionPerformed(java.awt.event.ActionEvent evt) {
         FenListingFacture fenListingFacture = new FenListingFacture(listingFrais, this);
         this.setVisible(false);
         fenListingFacture.setVisible(true);        
-    }//GEN-LAST:event_btnAfficherListFraisActionPerformed
+    }
 
-    private void btnAjouterEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAjouterEmpActionPerformed
-        // TODO add your handling code here:
-        FenAjouterEmp fenAjouterEmp = new FenAjouterEmp(listing);
-        fenAjouterEmp.setVisible(true); 
-    }//GEN-LAST:event_btnAjouterEmpActionPerformed
-
-
+    /**
+     * name: btnAjouterEmp
+     * fonction: afficher la fenetre pour ajouter un employé
+     * @param evt
+     */
+    private void btnAjouterEmpActionPerformed(java.awt.event.ActionEvent evt) {
+        FenAjouterEmp fenAjouterEmp = new FenAjouterEmp(listing, this);
+        this.setVisible(false);
+        fenAjouterEmp.setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAfficherListFrais;
