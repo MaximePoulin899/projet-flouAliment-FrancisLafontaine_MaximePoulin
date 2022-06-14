@@ -450,7 +450,10 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             jCheckJunior.setEnabled(true);
             jCheckSuper.setEnabled(true);
         }
+
     }//GEN-LAST:event_jCheckJuniorActionPerformed
+
+
 
     private void jCheckSeniorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSeniorActionPerformed
         // TODO add your handling code here:
@@ -464,6 +467,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             jCheckJunior.setEnabled(true);
             jCheckSuper.setEnabled(true);
         }
+
     }//GEN-LAST:event_jCheckSeniorActionPerformed
 
     private void jCheckSuperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckSuperActionPerformed
@@ -479,13 +483,18 @@ public class FenEntrerFacture extends javax.swing.JFrame {
             jCheckSuper.setEnabled(true);
             jCheckPlaneRide.setEnabled(true);
         }
+//Essaie non fructifiant
+//        if ((jCheckTransport.isSelected() || jCheckRestaurant.isSelected() || jCheckHebergement.isSelected()) || jCheckSuper.isSelected()) {
+//            jCheckPlaneRide.setEnabled(false);
+//        }
 
-        if ((jCheckTransport.isSelected() || jCheckRestaurant.isSelected() || jCheckHebergement.isSelected()) || jCheckSuper.isSelected()) {
-            jCheckPlaneRide.setEnabled(false);
-        }
 
     }//GEN-LAST:event_jCheckSuperActionPerformed
-
+//    private void mettreTransportAerienEnabled() {
+//        if (!jCheckJunior.isSelected() && !jCheckSuper.isSelected() && !jCheckSenior.isSelected()){
+//            jCheckPlaneRide.setEnabled(false);
+//        }
+//    }
 
     private void btnRetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetourActionPerformed
         // TODO add your handling code here:
