@@ -113,10 +113,17 @@ public class Utilitaire {
         return montantRembourse;
     }
 
-    public static double calculRemboursementMaxTransportAvion(Employe emp) {
-        double remboDispoMois = 2000;
+    public static double calculRemboursementMaxTransportAvion(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
+        double montantRembourse = 0;
+        double montantUtilisePrealable = 0;
+        double remboDispoTotalTransport = 2000;
 
-        return remboDispoMois;
+        if (emp.getType().equalsIgnoreCase(("super"))){
+            montantUtilisePrealable = calculerMontantUtiliseJour(listingFrais, frais,montantUtilisePrealable,emp);
+            montantRembourse = caculerMontantRembourse(montantUtilisePrealable, remboDispoTotalTransport, emp, frais);
+        }
+
+        return montantRembourse;
     }
 
 

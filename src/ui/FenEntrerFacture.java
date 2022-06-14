@@ -460,6 +460,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         clearChamps();
 
 
+
     }//GEN-LAST:event_btnEffacerActionPerformed
 
     private void btnSoumettreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSoumettreActionPerformed
@@ -512,10 +513,10 @@ public class FenEntrerFacture extends javax.swing.JFrame {
 
 
     private void creerFraisTransportAvion(Employe emp, LocalDate date, double montant) {
-        Transport transport = new Transport(emp, " Transport", montant, date);
-        transport.setRemboDispo((Utilitaire.calculRemboursementMaxTransportAvion(emp)));
+        TransportAvion transportAvion = new TransportAvion(emp, " Transport", montant, date);
+        transportAvion.setRemboDispo((Utilitaire.calculRemboursementMaxTransportAvion( emp, listingFrais, transportAvion)));
         try {
-            listingFrais.ajouterFrais2(transport);
+            listingFrais.ajouterFrais2(transportAvion);
             clearChamps();
         } catch (ExceptionFraisExisteDeja e) {
             JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);

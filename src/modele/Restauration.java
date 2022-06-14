@@ -66,18 +66,5 @@ public class Restauration extends Frais{
         return "Restauration" + super.toString();
     }
 
-    @Override
-    public void calculerLimiteMensuel() {
 
-    }
-
-    @Override
-    public void validerMontant() {
-
-    }
-
-    @Override
-    public void validerMontantRemo() {
-
-    }
 }

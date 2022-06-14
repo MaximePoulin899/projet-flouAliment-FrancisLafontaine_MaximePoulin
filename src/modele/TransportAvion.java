@@ -2,17 +2,14 @@ package modele;
 
 import java.time.LocalDate;
 
-public class Hebergement extends Frais {
+public class TransportAvion extends Frais{
 
-
-
-    public Hebergement() {
+    public TransportAvion() {
     }
 
-    public Hebergement(Employe employe, String typeFrais, double prixFacture, LocalDate date) {
+    public TransportAvion(Employe employe, String typeFrais, double prixFacture, LocalDate date) {
         super(employe, typeFrais, prixFacture, date);
     }
-
 
     @Override
     public Employe getEmploye() {
@@ -51,7 +48,6 @@ public class Hebergement extends Frais {
 
     @Override
     public void setRemboDispo(double remboDispo) {
-
         super.setRemboDispo(remboDispo);
     }
 
@@ -65,12 +61,19 @@ public class Hebergement extends Frais {
         super.setDate(date);
     }
 
-    //    À voir si on a besoin de overide la méthode to String ---> C'EST UN TEST IÇI À VÉRIFIER ET NON FAIT DANS LES AUTRES CLASSES
     @Override
-    public String toString() {
-        return "Hebergement" + super.toString();
+    public boolean equals(Object o) {
+        return super.equals(o);
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 
+    @Override
+    public String toString() {
+        return "Transport Avion" + super.toString();
+    }
 
 }

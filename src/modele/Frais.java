@@ -84,9 +84,5 @@ public abstract class Frais {
                 '}';
     }
 
-    public abstract void calculerLimiteMensuel();
 
-    public abstract void validerMontant();
-
-    public abstract void validerMontantRemo();
 }
