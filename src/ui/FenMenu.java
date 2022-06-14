@@ -6,7 +6,6 @@ package ui;
 
 import modele.RegistreEmploye;
 import modele.RegistreFrais;
-import modele.RegistreFrais2;
 import oi.ManipFichier;
 
 /**
@@ -15,7 +14,7 @@ import oi.ManipFichier;
  */
 public class FenMenu extends javax.swing.JFrame {
     RegistreEmploye listing;
-    RegistreFrais2 listingFrais;
+    RegistreFrais listingFrais;
 
     /**
      * Creates new form FenMenu
@@ -23,7 +22,7 @@ public class FenMenu extends javax.swing.JFrame {
     public FenMenu() {
         initComponents();
     }
-    public FenMenu(RegistreEmploye listing, RegistreFrais2 listingFrais) {
+    public FenMenu(RegistreEmploye listing, RegistreFrais listingFrais) {
         this();
         this.listing = listing;
         this.listingFrais = listingFrais;

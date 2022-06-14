@@ -280,7 +280,7 @@ public class FenAjouterEmp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPrenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrenomActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtPrenomActionPerformed
 
     private void btnRetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetourActionPerformed
@@ -321,7 +321,7 @@ public class FenAjouterEmp extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAjouterActionPerformed
 
     private void btnEffacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEffacerActionPerformed
-        // TODO add your handling code here:
+
         viderChampp();
 
     }//GEN-LAST:event_btnEffacerActionPerformed

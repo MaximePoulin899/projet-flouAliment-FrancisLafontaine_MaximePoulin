@@ -5,8 +5,7 @@
 package ui;
 
 import modele.Frais;
-import modele.RegistreFrais2;
-import oi.ManipFichier;
+import modele.RegistreFrais;
 import oi.ManipFichierFrais;
 
 import javax.swing.*;
@@ -18,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FenListingFacture extends javax.swing.JFrame {
     JFrame fenMenu;
-    private RegistreFrais2 listingFrais;
+    private RegistreFrais listingFrais;
     /**
      * Creates new form FenListingFacture
      */
@@ -133,7 +132,7 @@ public class FenListingFacture extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    public FenListingFacture(RegistreFrais2 listingFrais, JFrame fenMenu){
+    public FenListingFacture(RegistreFrais listingFrais, JFrame fenMenu){
         this();
         this. fenMenu = fenMenu;
         this.listingFrais = listingFrais;

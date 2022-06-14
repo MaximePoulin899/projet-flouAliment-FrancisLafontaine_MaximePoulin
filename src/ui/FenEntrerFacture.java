@@ -19,7 +19,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
     JFrame fenMenu;
 
     private RegistreEmploye listing;
-    private RegistreFrais2 listingFrais;
+    private RegistreFrais listingFrais;
 
     /**
      * Creates new form FenEntrerFacture
@@ -29,7 +29,7 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         jCheckPlaneRide.setEnabled(false);
     }
 
-    public FenEntrerFacture(RegistreEmploye listing, RegistreFrais2 listingFrais, JFrame fenMenu) {
+    public FenEntrerFacture(RegistreEmploye listing, RegistreFrais listingFrais, JFrame fenMenu) {
         this();
         this.fenMenu = fenMenu;
         this.listing = listing;

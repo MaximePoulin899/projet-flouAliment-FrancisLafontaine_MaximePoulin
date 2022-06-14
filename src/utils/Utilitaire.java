@@ -2,7 +2,7 @@ package utils;
 
 import modele.Employe;
 import modele.Frais;
-import modele.RegistreFrais2;
+import modele.RegistreFrais;
 
 import javax.swing.*;
 
@@ -15,7 +15,7 @@ public class Utilitaire {
      * @param frais
      * @return en double Le montant illigible au remboursement.
      */
-    public static double calculRemboursementMaxHebergement(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
+    public static double calculRemboursementMaxHebergement(Employe emp, RegistreFrais listingFrais, Frais frais) {
         double montantRembourse = 0;
         double montantUtilisePrealable = 0;
         double remboDispoTotalHergement = 0;
@@ -55,7 +55,7 @@ public class Utilitaire {
      * @param frais
      * @return en double Le montant illigible au remboursement.
      */
-    public static double calculRemboursementMaxRestaurant(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
+    public static double calculRemboursementMaxRestaurant(Employe emp, RegistreFrais listingFrais, Frais frais) {
         double montantRembourse = 0;
         double montantUtilisePrealable = 0;
         double remboDispoTotalRestaurant;
@@ -97,7 +97,7 @@ public class Utilitaire {
      * @param frais
      * @return en double Le montant illigible au remboursement.
      */
-    public static double calculRemboursementMaxTransport(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
+    public static double calculRemboursementMaxTransport(Employe emp, RegistreFrais listingFrais, Frais frais) {
         double montantRembourse = 0;
         double montantUtilisePrealable = 0;
         double remboDispoTotalTransport;
@@ -139,7 +139,7 @@ public class Utilitaire {
      * @param frais
      * @return
      */
-    public static double calculRemboursementMaxTransportAvion(Employe emp, RegistreFrais2 listingFrais, Frais frais) {
+    public static double calculRemboursementMaxTransportAvion(Employe emp, RegistreFrais listingFrais, Frais frais) {
         double montantRembourse = 0;
         double montantUtilisePrealable = 0;
         double remboDispoTotalTransport = 2000;
@@ -160,7 +160,7 @@ public class Utilitaire {
      * @param emp
      * @return Le montant utilié au préalable par l'employé dans l'espace temps de un mois
      */
-    private static double calculerMontantUtiliseMois(RegistreFrais2 listingFrais, Frais frais, double montantUtilisePrealable, Employe emp) {
+    private static double calculerMontantUtiliseMois(RegistreFrais listingFrais, Frais frais, double montantUtilisePrealable, Employe emp) {
         for (Frais tmp : listingFrais.getRegistreFrais2()) {
             if (frais.getDate().getYear() == tmp.getDate().getYear()
                     && frais.getDate().getMonth() == tmp.getDate().getMonth()
@@ -178,7 +178,7 @@ public class Utilitaire {
      * @param emp
      * @return Le montant utilié au préalable par l'employé dans l'espace temps de un jour
      */
-    private static double calculerMontantUtiliseJour(RegistreFrais2 listingFrais, Frais frais, double montantUtilisePrealable, Employe emp) {
+    private static double calculerMontantUtiliseJour(RegistreFrais listingFrais, Frais frais, double montantUtilisePrealable, Employe emp) {
         for (Frais tmp : listingFrais.getRegistreFrais2()) {
             if (frais.getDate().getYear() == tmp.getDate().getYear()
                     && frais.getDate().getMonth() == tmp.getDate().getMonth()

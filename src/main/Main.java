@@ -20,7 +20,7 @@ public class Main {
         //---------------------------------------------------------------création registre employ
         RegistreEmploye listing = new RegistreEmploye();
         //---------------------------------------------------------------Creer listing Frais
-        RegistreFrais2 listingFrais = new RegistreFrais2();
+        RegistreFrais listingFrais = new RegistreFrais();
 
 
 
@@ -48,6 +48,7 @@ public class Main {
             java.util.logging.Logger.getLogger(FenMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+
 
         /* Create and display the form */
 

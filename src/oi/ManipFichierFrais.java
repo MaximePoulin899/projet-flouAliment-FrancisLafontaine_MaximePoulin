@@ -2,7 +2,7 @@ package oi;
 
 import modele.*;
 import modele.Frais;
-import modele.RegistreFrais2;
+import modele.RegistreFrais;
 import utils.FraisExisteDejaException;
 
 import javax.swing.*;
@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 public class ManipFichierFrais {
 
 
-    public static void lecture(String fichier, RegistreFrais2 listingFrais) {
+    public static void lecture(String fichier, RegistreFrais listingFrais) {
 
         File file = new File(fichier);
 
@@ -78,7 +78,7 @@ public class ManipFichierFrais {
     }
 
 
-    public static void ecriture(String fichier, RegistreFrais2 listingFrais) {
+    public static void ecriture(String fichier, RegistreFrais listingFrais) {
         File file = new File(fichier);
         FileWriter fw = null;
         BufferedWriter bw = null;
