@@ -7,6 +7,7 @@ package ui;
 import modele.RegistreEmploye;
 import modele.RegistreFrais;
 import modele.RegistreFrais2;
+import oi.ManipFichier;
 
 /**
  *
@@ -26,6 +27,8 @@ public class FenMenu extends javax.swing.JFrame {
         this();
         this.listing = listing;
         this.listingFrais = listingFrais;
+
+        ManipFichier.lecture("src/data/dataIn.txt", listing);
     }
 
 
