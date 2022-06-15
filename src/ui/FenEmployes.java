@@ -211,11 +211,10 @@ public class FenEmployes extends javax.swing.JFrame {
 
         try {
             ManipFichier.ecriture("src/data/dataOut.txt", listing);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Fichier en sortie  introuvable !!", "Erreur", JOptionPane.ERROR_MESSAGE);
-        }finally {
             JOptionPane.showMessageDialog(null, "Sauvegarde effectuer avec succès",
                     "Sauvegarde", JOptionPane.INFORMATION_MESSAGE);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Fichier en sortie  introuvable !!", "Erreur", JOptionPane.ERROR_MESSAGE);
         }
 
 
