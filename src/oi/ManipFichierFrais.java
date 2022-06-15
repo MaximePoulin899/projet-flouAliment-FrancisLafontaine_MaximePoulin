@@ -76,7 +76,7 @@ public class ManipFichierFrais {
      * fonction: permett l'écriture et de persister les donnée dans un fichier
      * @param fichier
      * @param listingFrais
-     * @throws IOException
+     *
      */
     public static void ecriture(String fichier, RegistreFrais listingFrais) throws IOException {
         File file = new File(fichier);
