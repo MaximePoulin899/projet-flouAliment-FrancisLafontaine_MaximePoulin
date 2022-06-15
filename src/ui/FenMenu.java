@@ -39,8 +39,6 @@ public class FenMenu extends javax.swing.JFrame {
         this();
         this.listing = listing;
         this.listingFrais = listingFrais;
-
-        ManipFichier.lecture("src/data/dataIn.txt", listing);
     }
 
 

@@ -1,6 +1,7 @@
 package main;
 
 import modele.*;
+import oi.ManipFichier;
 import ui.FenMenu;
 
 
@@ -17,6 +18,8 @@ public class Main {
         //---------------------------------------------------------------Creer listing Frais
         RegistreFrais listingFrais = new RegistreFrais();
 
+
+        ManipFichier.lecture("src/data/dataIn.txt", listing);
 
 
         /* Set the Nimbus look and feel */
