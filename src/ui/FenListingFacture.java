@@ -69,6 +69,7 @@ public class FenListingFacture extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
         btnRetour.setText("Retour au menu");
