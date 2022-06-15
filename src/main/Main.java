@@ -4,6 +4,10 @@ import modele.*;
 import oi.ManipFichier;
 import ui.FenMenu;
 
+import javax.swing.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 
 public class Main {
 
@@ -19,7 +23,13 @@ public class Main {
         RegistreFrais listingFrais = new RegistreFrais();
 
 
-        ManipFichier.lecture("src/data/dataIn.txt", listing);
+        try {
+            ManipFichier.lecture("src/data/dataIn.txt", listing);
+        } catch (FileNotFoundException e1) {//-------------on peut récupérer l'erreur si le fichier est introuvable
+            JOptionPane.showMessageDialog(null, "Fichier en entrée introuvable !!", "Erreur I/O", JOptionPane.ERROR_MESSAGE);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Fichier introuvable !!", "Erreur I/O", JOptionPane.ERROR_MESSAGE);
+        }
 
 
         /* Set the Nimbus look and feel */
@@ -56,9 +66,6 @@ public class Main {
             }
         });
     }
-    
-
-
 
 
 }

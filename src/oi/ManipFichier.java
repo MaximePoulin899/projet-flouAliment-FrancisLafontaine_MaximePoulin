@@ -12,14 +12,13 @@ import java.io.*;
  * fonction: permettre l'entrer de donnée
  */
 public class ManipFichier {
-    public static void lecture(String fichier, RegistreEmploye listing) {
+    public static void lecture(String fichier, RegistreEmploye listing) throws FileNotFoundException, IOException {
 
         File file = new File(fichier);
 
         FileReader fr = null;
         BufferedReader br = null;
 
-        try {
             fr = new FileReader(file);
             br = new BufferedReader(fr);
             //lecture
@@ -34,12 +33,8 @@ public class ManipFichier {
                     JOptionPane.showMessageDialog(null, e.getEmploye().toString(), "Erreur AJout", JOptionPane.ERROR_MESSAGE);
                 }
             }
-            br.close();
-        } catch (FileNotFoundException e) {//-------------on peut récupérer l'erreur si le fichier est introuvable
-            JOptionPane.showMessageDialog(null, "Fichier introuvable !!", "Erreur", JOptionPane.ERROR_MESSAGE);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Fichier introuvable !!", "Erreur", JOptionPane.ERROR_MESSAGE);
-        }
+           br.close();
+
     }
 
     /**
@@ -63,11 +58,10 @@ public class ManipFichier {
      * @param fichier
      * @param listing
      */
-    public static void ecriture(String fichier, RegistreEmploye listing) {
+    public static void ecriture(String fichier, RegistreEmploye listing) throws IOException {
         File file = new File(fichier);
         FileWriter fw = null;
         BufferedWriter bw = null;
-        try {
             fw = new FileWriter(file);
             bw = new BufferedWriter(fw);
 
@@ -77,9 +71,6 @@ public class ManipFichier {
                 bw.newLine();
             }
             bw.close();
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Fichier introuvable !!", "Erreur", JOptionPane.ERROR_MESSAGE);
-        }
     }
 
     /**

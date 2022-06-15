@@ -4,12 +4,14 @@
  */
 package ui;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import modele.Employe;
 import modele.RegistreEmploye;
 import oi.ManipFichier;
+
+import java.io.IOException;
 
 /**name : FenEmploye
  * fonction sert a afficher la liste des employe
@@ -207,7 +209,14 @@ public class FenEmployes extends javax.swing.JFrame {
      */
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {
 
-        ManipFichier.ecriture("src/data/dataOut.txt", listing);
+        try {
+            ManipFichier.ecriture("src/data/dataOut.txt", listing);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Fichier en sortie  introuvable !!", "Erreur", JOptionPane.ERROR_MESSAGE);
+        }finally {
+            JOptionPane.showMessageDialog(null, "Sauvegarde effectuer avec succès",
+                    "Sauvegarde", JOptionPane.INFORMATION_MESSAGE);
+        }
 
 
     }
