@@ -171,7 +171,8 @@ public class FenListingFacture extends javax.swing.JFrame {
             ManipFichierFrais.ecriture("src/data/DataFraisOut.txt", listingFrais);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Fichier de sortie introuvable !!", "Erreur", JOptionPane.ERROR_MESSAGE);
-        }finally {
+ //Finally sera toujours executé... DOnc pas bon ici je crois
+            }finally {
             JOptionPane.showMessageDialog(null, "Sauvegarde effectuer avec succès",
                     "Sauvegarde", JOptionPane.INFORMATION_MESSAGE);
         }
