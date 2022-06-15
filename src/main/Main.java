@@ -29,6 +29,8 @@ public class Main {
             JOptionPane.showMessageDialog(null, "Fichier en entrée introuvable !!", "Erreur I/O", JOptionPane.ERROR_MESSAGE);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Fichier introuvable !!", "Erreur I/O", JOptionPane.ERROR_MESSAGE);
+        }catch (ArrayIndexOutOfBoundsException e2){
+            JOptionPane.showMessageDialog(null, "Fichier Vide !!", "Erreur I/O", JOptionPane.ERROR_MESSAGE);
         }
 
 
