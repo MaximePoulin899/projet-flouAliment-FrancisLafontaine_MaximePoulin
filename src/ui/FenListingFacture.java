@@ -131,28 +131,41 @@ public class FenListingFacture extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-
+    /**
+     * Cronstructeur surchargé avec passation de la listeFrais
+     * @param listingFrais
+     * @param fenMenu
+     */
     public FenListingFacture(RegistreFrais listingFrais, JFrame fenMenu){
         this();
         this. fenMenu = fenMenu;
         this.listingFrais = listingFrais;
+
+
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-
-
         for (Frais frais: listingFrais.getRegistreFrais2()) {
             model.addRow(new Object[]{frais.getEmploye().getPrenom(),frais.getEmploye().getNom(), frais.getEmploye().getType(),frais.getTypeFrais(),frais.getPrixFacture(),frais.getRemboDispo(),frais.getDate() });
         }
 
     }
 
+    /**
+     * Retour au menu principal
+     * @param evt
+     */
+
     private void btnRetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetourActionPerformed
-        // TODO add your handling code here:
+
         this.dispose();
         fenMenu.setVisible(true);
     }//GEN-LAST:event_btnRetourActionPerformed
 
+    /**
+     * Ecriture sur le fichier des informations de la listeFrai
+     * @param evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
         ManipFichierFrais.ecriture("src/data/DataFraisOut.txt", listingFrais);
     }//GEN-LAST:event_jButton1ActionPerformed
 

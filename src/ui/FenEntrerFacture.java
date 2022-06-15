@@ -512,6 +512,10 @@ public class FenEntrerFacture extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEffacerActionPerformed
 
+    /**
+     * Prends les champs en compte et construit un intances de la classe Frais
+     * @param evt
+     */
     private void btnSoumettreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSoumettreActionPerformed
         // TODO add your handling code here:
 
@@ -559,46 +563,67 @@ public class FenEntrerFacture extends javax.swing.JFrame {
 
 
             if (jCheckHebergement.isSelected()) {
-                creerFraisHergement(emp, date, montant);
+                creerFraisHergement(emp, date, montant,listingFrais);
             } else if (jCheckTransport.isSelected()) {
-                creerFraisTransport(emp, date, montant);
+                creerFraisTransport(emp, date, montant,listingFrais);
             } else if (jCheckRestaurant.isSelected()) {
-                creerFraisRestaurant(emp, date, montant);
+                creerFraisRestaurant(emp, date, montant,listingFrais);
             } else if (jCheckPlaneRide.isSelected()) {
-                creerFraisTransportAvion(emp, date, montant);
+                creerFraisTransportAvion(emp, date, montant,listingFrais);
             }
         }
 
     }//GEN-LAST:event_btnSoumettreActionPerformed
 
-
-    private void creerFraisTransportAvion(Employe emp, LocalDate date, double montant) {
+    /**
+     *
+     * Creer un instances de la classe TransportAvion et l'ajoute à la listingFrais
+     * @param emp
+     * @param date
+     * @param montant
+     * @param listingFrais
+     */
+    private void creerFraisTransportAvion(Employe emp, LocalDate date, double montant, RegistreFrais listingFrais) {
         TransportAvion transportAvion = new TransportAvion(emp, " Transport", montant, date);
         transportAvion.setRemboDispo((Utilitaire.calculRemboursementMaxTransportAvion(emp, listingFrais, transportAvion)));
         try {
-            listingFrais.ajouterFrais2(transportAvion);
+            listingFrais.ajouterFrais(transportAvion);
             clearChamps();
         } catch (FraisExisteDejaException e) {
             JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    private void creerFraisRestaurant(Employe emp, LocalDate date, double montant) {
-        Restauration restauration = new Restauration(emp, "Restaurant", montant, date);
-        restauration.setRemboDispo((Utilitaire.calculRemboursementMaxRestaurant(emp, listingFrais, restauration)));
+    /**
+     *Creer un instances de la classe Restaurant et l'ajoute à la listingFrais
+     * @param emp
+     * @param date
+     * @param montant
+     * @param listingFrais
+     */
+    private void creerFraisRestaurant(Employe emp, LocalDate date, double montant, RegistreFrais listingFrais) {
+        Restaurant restaurant = new Restaurant(emp, "Restaurant", montant, date);
+        restaurant.setRemboDispo((Utilitaire.calculRemboursementMaxRestaurant(emp, listingFrais, restaurant)));
         try {
-            listingFrais.ajouterFrais2(restauration);
+            listingFrais.ajouterFrais(restaurant);
             clearChamps();
         } catch (FraisExisteDejaException e) {
             JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    private void creerFraisTransport(Employe emp, LocalDate date, double montant) {
+    /**
+     * Creer un instances de la classe Transport et l'ajoute à la listingFrais
+     * @param emp
+     * @param date
+     * @param montant
+     * @param listingFrais
+     */
+    private void creerFraisTransport(Employe emp, LocalDate date, double montant, RegistreFrais listingFrais) {
         Transport transport = new Transport(emp, " Transport", montant, date);
         transport.setRemboDispo((Utilitaire.calculRemboursementMaxTransport(emp, listingFrais, transport)));
         try {
-            listingFrais.ajouterFrais2(transport);
+            listingFrais.ajouterFrais(transport);
             clearChamps();
         } catch (FraisExisteDejaException e) {
             JOptionPane.showMessageDialog(null, "Erreur! Frais en double\n", "Erreur Ajout Frais", JOptionPane.ERROR_MESSAGE);
@@ -606,12 +631,19 @@ public class FenEntrerFacture extends javax.swing.JFrame {
 
     }
 
-    private void creerFraisHergement(Employe emp, LocalDate date, double montant) {
+    /**
+     * Creer un instances de la classe Hebergement et l'ajoute à la listingFrais
+     * @param emp
+     * @param date
+     * @param montant
+     * @param listingFrais
+     */
+    private void creerFraisHergement(Employe emp, LocalDate date, double montant, RegistreFrais listingFrais) {
         Hebergement hebergement = new Hebergement(emp, "Hebergement", montant, date);
         hebergement.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(emp, listingFrais, hebergement));
 
         try {
-            listingFrais.ajouterFrais2(hebergement);
+            listingFrais.ajouterFrais(hebergement);
 
             clearChamps();
         } catch (FraisExisteDejaException e) {
@@ -620,6 +652,11 @@ public class FenEntrerFacture extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Valide et envoie un message si un nombre est plus petit que zero
+     * @param montant
+     * @return boolean
+     */
     private boolean validerMontantPlusGrdZero(double montant) {
         boolean flag = true;
         if (montant < 0) {
@@ -632,6 +669,11 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         return flag;
     }
 
+    /**
+     * Valide et envoie un message si la date se passe dans le futur
+     * @param date
+     * @return
+     */
     private boolean validerDate(LocalDate date) {
         boolean flag = true;
         LocalDate dateNow = LocalDate.now();
@@ -646,23 +688,16 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         return flag;
     }
 
-    private LocalDate parserTxtDate(String text) {
-        String[] tokens = text.split("-");
-        int year = (Integer.parseInt(tokens[0]));
-        int month = (Integer.parseInt(tokens[1]));
-        int day = (Integer.parseInt(tokens[2]));
-
-        return LocalDate.of(year, month, day);
-
-    }
-
 
     private void txtDateFormatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateFormatActionPerformed
         // TODO add your handling code here:
 
     }//GEN-LAST:event_txtDateFormatActionPerformed
 
-
+    /**
+     * Recherche à travers une liste un emp et le return
+     * @return Employe
+     */
     private Employe trouverEmploye() {
         Employe empVide = new Employe();
         for (Employe emp : listing.getRegistre()) {
@@ -674,6 +709,10 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         return empVide;
     }
 
+    /**
+     * Recherche à travers une liste un emp et le return une valeur boolean si il l'a trouvé.
+     * @return boolean
+     */
     private boolean validerEmploye() {
         boolean trouve = false;
 
@@ -695,6 +734,10 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         return trouve;
     }
 
+    /**
+     * Valide si les champs de texte son bien remplie
+     * @return boolean
+     */
     private boolean validerData() {
         boolean flag = true;
         if (txtNomEmp.getText().isEmpty()) {
@@ -740,6 +783,9 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         return flag;
     }
 
+    /**
+     * Vide tous les champs de cette page
+     */
     private void clearChamps() {
 
 
@@ -757,9 +803,9 @@ public class FenEntrerFacture extends javax.swing.JFrame {
         jCheckSuper.setSelected(false);
         jCheckTransport.setEnabled(true);
         jCheckTransport.setSelected(false);
-//        jCheckPlaneRide.setEnabled(true);
-//        jCheckPlaneRide.setSelected(false);
-        //vider les champs
+        jCheckPlaneRide.setEnabled(true);
+        jCheckPlaneRide.setSelected(false);
+
         txtNomEmp.setText("");
         txtPrenomEmp.setText("");
         txtMontant.setText("");

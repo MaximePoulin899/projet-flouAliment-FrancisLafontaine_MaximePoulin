@@ -9,11 +9,11 @@ import javax.swing.*;
 public class Utilitaire {
 
     /**
-     *  Calcule le remboursement pour les frais d'hébergement en fonction de l'employé, son type, le mois
+     *  Calcule le remboursement pour les frais d'hébergement en fonction de l'employé, son type, le mois. Return Le montant illigible au remboursement.
      * @param emp
      * @param listingFrais
      * @param frais
-     * @return en double Le montant illigible au remboursement.
+     * @return double
      */
     public static double calculRemboursementMaxHebergement(Employe emp, RegistreFrais listingFrais, Frais frais) {
         double montantRembourse = 0;
@@ -49,11 +49,11 @@ public class Utilitaire {
     }
 
     /**
-     *  Calcule le remboursement  pour les frais de restauration en fonction de l'employé, son type, le mois.
+     *  Calcule le remboursement  pour les frais de restauration en fonction de l'employé, son type, le mois. Return Le montant illigible au remboursement.
      * @param emp
      * @param listingFrais
      * @param frais
-     * @return en double Le montant illigible au remboursement.
+     * @return double
      */
     public static double calculRemboursementMaxRestaurant(Employe emp, RegistreFrais listingFrais, Frais frais) {
         double montantRembourse = 0;
@@ -91,11 +91,11 @@ public class Utilitaire {
 
 
     /**
-     *  Calcule le remboursement  pour les frais de transport en fonction de l'employé, son type, le mois.
+     *  Calcule le remboursement  pour les frais de transport en fonction de l'employé, son type, le mois et le jour. Return Le montant illigible au remboursement.
      * @param emp
      * @param listingFrais
      * @param frais
-     * @return en double Le montant illigible au remboursement.
+     * @return double
      */
     public static double calculRemboursementMaxTransport(Employe emp, RegistreFrais listingFrais, Frais frais) {
         double montantRembourse = 0;
@@ -133,11 +133,11 @@ public class Utilitaire {
     }
 
     /**
-     *
+     *Calcule le remboursement  pour les frais de transport en fonction de l'employé, son type, le mois, le jour.
      * @param emp
      * @param listingFrais
      * @param frais
-     * @return
+     * @return en double Le montant illigible au remboursement.
      */
     public static double calculRemboursementMaxTransportAvion(Employe emp, RegistreFrais listingFrais, Frais frais) {
         double montantRembourse = 0;
@@ -154,11 +154,12 @@ public class Utilitaire {
 
 
     /**
+     * Le montant utilié au préalable par l'employé dans l'espace temps de un mois
      * @param listingFrais
      * @param frais
      * @param montantUtilisePrealable
      * @param emp
-     * @return Le montant utilié au préalable par l'employé dans l'espace temps de un mois
+     * @return double
      */
     private static double calculerMontantUtiliseMois(RegistreFrais listingFrais, Frais frais, double montantUtilisePrealable, Employe emp) {
         for (Frais tmp : listingFrais.getRegistreFrais2()) {
@@ -172,11 +173,12 @@ public class Utilitaire {
     }
 
     /**
+     * Le montant utilié au préalable par l'employé dans l'espace temps de un jour.
      * @param listingFrais
      * @param frais
      * @param montantUtilisePrealable
      * @param emp
-     * @return Le montant utilié au préalable par l'employé dans l'espace temps de un jour
+     * @return double
      */
     private static double calculerMontantUtiliseJour(RegistreFrais listingFrais, Frais frais, double montantUtilisePrealable, Employe emp) {
         for (Frais tmp : listingFrais.getRegistreFrais2()) {
@@ -191,12 +193,13 @@ public class Utilitaire {
     }
 
     /**
+     *  Calcule le montant à remboursé selon le type d'employé et renvoie un message pour avertir le comptable du montant à rembourser
      * @param montantUtilisePrealable
      * @param remboDispoTotal
      * @param emp
      * @param frais
-     * @return Calcule le montant à remboursé selon le type d'employé et renvoie un message pour avertir le comptable du montant à rembourser
-     * // Je sais, cette fonction fait plus qu'une chose
+     * @return double
+     *
      */
     private static double caculerMontantRembourse(double montantUtilisePrealable, double remboDispoTotal, Employe emp, Frais frais) {
         double montantRembourse = 0;

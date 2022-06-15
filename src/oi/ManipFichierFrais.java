@@ -34,7 +34,7 @@ public class ManipFichierFrais {
                // frais.setRemboDispo(Utilitaire.calculRemboursementMaxHebergement(new Employe("Pou", "Max", "super"), listingFrais, frais));
 
                 try {
-                    listingFrais.ajouterFrais2(frais);
+                    listingFrais.ajouterFrais(frais);
 
                 } catch (FraisExisteDejaException e) {
                     JOptionPane.showMessageDialog(null, e.getFrais().toString(), "Erreur AJout", JOptionPane.ERROR_MESSAGE);

@@ -2,12 +2,12 @@ package modele;
 
 import java.time.LocalDate;
 
-public class Restauration extends Frais{
+public class Restaurant extends Frais{
 
-    public Restauration() {
+    public Restaurant() {
     }
 
-    public Restauration(Employe employe, String typeFrais, double prixFacture, LocalDate date) {
+    public Restaurant(Employe employe, String typeFrais, double prixFacture, LocalDate date) {
         super(employe, typeFrais, prixFacture, date);
     }
 
